@@ -1,0 +1,69 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { getPost, getAllPosts } from "@/lib/posts";
+
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPost(slug);
+  if (!post) return {};
+  return {
+    title: post.title,
+    description: post.excerpt,
+  };
+}
+
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
+export default async function PostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = getPost(slug);
+
+  if (!post) notFound();
+
+  return (
+    <main className="max-w-2xl mx-auto px-6 pt-32 pb-24">
+      <div className="mb-12">
+        <Link
+          href="/blog"
+          className="text-xs text-muted hover:text-foreground transition-colors"
+        >
+          ← Writing
+        </Link>
+      </div>
+      <article>
+        <header className="mb-10">
+          <time
+            dateTime={post.date}
+            className="text-xs text-muted block mb-3"
+          >
+            {formatDate(post.date)}
+          </time>
+          <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+            {post.title}
+          </h1>
+        </header>
+        {post.content}
+      </article>
+    </main>
+  );
+}
