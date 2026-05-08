@@ -15,105 +15,110 @@ type Photo = {
 const photos: Photo[] = [
   // --- portraits (ratio ~0.667) ---
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260412-IMGL5331-2_WebP.webp",  alt: "Portrait",          ratio: 0.667, placeholder: false },
+  { src: "/photos/20260412-IMGL5331-2_WebP.webp",  alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "Colorful coastal buildings in Reykjavik, Iceland"},
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260412-IMGL5423-2_WebP.webp",  alt: "Portrait",          ratio: 0.667, placeholder: false },
+  { src: "/photos/20260412-IMGL5423-2_WebP.webp",  alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "A Lighthouse pearched on the coast of Reykjavik, Iceland" },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260412-IMGL5452_WebP.webp",    alt: "Portrait",          ratio: 0.667, placeholder: false },
+  { src: "/photos/20260412-IMGL5452_WebP.webp",    alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "The Common Eider (Somateria mollissima) Swimming through a channel in Iceland." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL6446_WebP.webp",    alt: "Portrait",          ratio: 0.667, placeholder: false },
+  { src: "/photos/20260413-IMGL6446_WebP.webp",    alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "A Quiet evening at the Skógafoss waterfall in southern Iceland." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260103-IMGL2280_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false },
+  { src: "/photos/20260103-IMGL2280_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "The prominent red winged blackbirds that pearch themselves on the strands of grass surrounding Wonderland lake, Boulder CO." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL6948_WebP.webp",    alt: "Portrait",          ratio: 0.667, placeholder: false },
+  { src: "/photos/20260414-IMGL6948_WebP.webp",    alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "A Group of stickers stucken to a old bridge in the middle of soutern iceland. Reperesenting all that have been there." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260125-IMGL2978_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false },
+  { src: "/photos/20260125-IMGL2978_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "A Finch during a snow storm in Boulder, CO." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7042_WebP.webp",    alt: "Portrait",          ratio: 0.667, placeholder: false },
+  { src: "/photos/20260414-IMGL7042_WebP.webp",    alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "A Figure Admiring the view of a mountain."},
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260125-IMGL3001_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false },
+  { src: "/photos/20260125-IMGL3001_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "A Golden-crowned Kinglet holding onto a branch during a freak snow storm in Boulder, CO." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7231-2_WebP.webp",  alt: "Portrait",          ratio: 0.667, placeholder: false },
+  { src: "/photos/20260414-IMGL7231-2_WebP.webp",  alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "Large peak hidden by the clouds during a rainy day in Iceland."},
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260130-IMGL3078_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false },
+  { src: "/photos/20260130-IMGL3078_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "Ripple effect created by the mixing of sound waves and water." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7170_WebP.webp",    alt: "Portrait",          ratio: 0.75,  placeholder: false },
+  { src: "/photos/20260414-IMGL7170_WebP.webp",    alt: "Portrait",          ratio: 0.75,  placeholder: false , caption: "One of Icelands taller peaks hidden by the clouds, measuring around 2000m (6000ft)."},
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260411-IMGL5222-3_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false },
+  { src: "/photos/20260411-IMGL5222-3_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "Northern Lights while crossing over Greenland" },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/untitled-9827_WebP.webp",        alt: "Portrait",          ratio: 0.667, placeholder: false },
+  { src: "/photos/untitled-9827_WebP.webp",        alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "Small House on the coast of a Island in the BVI. Sheltered by greenery."},
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL5814-2_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false },
+  { src: "/photos/20260413-IMGL5814-2_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "A group of fuzzy horses on the coast of iceland. Surrounded by the barren landscape." },
   // --- double panoramas ---
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL6127-2_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false },
+  { src: "/photos/20260413-IMGL6127-2_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "A Church, one of many identicle ones in Iceland. Surrounded by a large plateau." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL6347_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false },
+  { src: "/photos/20260413-IMGL6347_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "Lonely Horse. :(" },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL6957-4_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false },
+  { src: "/photos/20260414-IMGL6957-4_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "A mountain range zoomed in to reveal its deep groves." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7197-2_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false },
+  { src: "/photos/20260414-IMGL7197-2_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "A lonely abandoned barnhouse in the plains of south Iceland." },
   // --- 3:2 landscape pairs ---
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20251225-IMG_1987_WebP.webp",    alt: "December 2025",     ratio: 1.5,   placeholder: false },
+  { src: "/photos/20251225-IMG_1987_WebP.webp",    alt: "December 2025",     ratio: 1.5,   placeholder: false , caption: "A satalite near Boulder, CO. In the past used for radio emissions from satellites, space weather, and atmospheric data and operated by NTIA/ITS and NOAA" },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20251225-IMG_1988_WebP.webp",    alt: "December 2025",     ratio: 1.5,   placeholder: false },
+  { src: "/photos/20251225-IMG_1988_WebP.webp",    alt: "December 2025",     ratio: 1.5,   placeholder: false , caption: "The milky way. Taken in a bortle 4 on a F/4." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260304-IMGL3696_WebP.webp",    alt: "March 2026",        ratio: 1.5,   placeholder: false },
+  { src: "/photos/20260304-IMGL3696_WebP.webp",    alt: "March 2026",        ratio: 1.5,   placeholder: false , caption: "Brand new fire Helicopter Flying over Boulder Colorado responding to the Heil fire." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260412-IMGL5579-2_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false },
+  { src: "/photos/20260412-IMGL5579-2_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "A looming mountain over Reykjavík in Iceland, Named Kambshorn." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL5850-3_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false },
+  { src: "/photos/20260413-IMGL5850-3_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Seljalandsfoss from the front. Long exposures creating a milky water effect." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL5912_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false },
+  { src: "/photos/20260413-IMGL5912_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Walking behind Seljalandsfoss in Iceland." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7020-2_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false },
+  { src: "/photos/20260414-IMGL7020-2_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "A group of strangers looking at the battle ahead. One of the tallest mountains in Iceland." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7137-2_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false },
+  { src: "/photos/20260414-IMGL7137-2_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "A relective lake In Iceland On a sunny spring day." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7279_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false },
+  { src: "/photos/20260414-IMGL7279_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Washed up Glacier on Dimond Beach - Iceland." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7305_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false },
+  { src: "/photos/20260414-IMGL7305_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "A Unique Rock Laying in a washed up glacier on Dimond Beach - Iceland"},
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260416-IMGL8653_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false },
+  { src: "/photos/20260416-IMGL8653_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Land Rover, Built by @dannytkaze On Instagram"},
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260416-IMGL8656_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false },
+  { src: "/photos/20260416-IMGL8656_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Land Rover, Built by @dannytkaze On Instagram"},
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260416-IMGL8658-2_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false },
+  { src: "/photos/20260416-IMGL8658-2_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Land Rover, Built by @dannytkaze On Instagram"},
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260417-IMGL8991_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false },
+  { src: "/photos/20260417-IMGL8991_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Clouds forming over Denver during a flight back from Iceland" },
   // --- 4:3 + 1.42 ---
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260102-BM3A2105_WebP.webp",    alt: "January 2026",      ratio: 1.25,  placeholder: false },
+  { src: "/photos/20260102-BM3A2105_WebP.webp",    alt: "January 2026",      ratio: 1.25,  placeholder: false , caption: "Whispy clouds rolling over the front range." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260102-BM3A2157_WebP.webp",    alt: "January 2026",      ratio: 1.25,  placeholder: false },
+  { src: "/photos/20260102-BM3A2157_WebP.webp",    alt: "January 2026",      ratio: 1.25,  placeholder: false , caption: "A Full Moon Over Colorado." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL5795_WebP.webp",    alt: "Sailing regatta",   ratio: 1.42,  placeholder: false },
+  { src: "/photos/20260413-IMGL5795_WebP.webp",    alt: "Sailing regatta",   ratio: 1.42,  placeholder: false , caption: "A horse on the coast of iceland." },
   // --- aerial / 16:9 ---
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/above-cat-forest-beach-ocean.webp",   alt: "Aerial view of forested coastline with beach and ocean", ratio: 1.78, placeholder: false },
+  { src: "/photos/above-cat-forest-beach-ocean.webp",   alt: "Aerial view of forested coastline with beach and ocean", ratio: 1.78, placeholder: false , caption: "Aerial view of forested coastline with beach and ocean." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/above-pano-sunset-cats.webp",         alt: "Panoramic aerial view of catamarans at sunset",          ratio: 1.65, placeholder: false },
+  { src: "/photos/above-pano-sunset-cats.webp",         alt: "Panoramic aerial view of catamarans at sunset",          ratio: 1.65, placeholder: false , caption: "Panoramic aerial view of catamarans at sunset." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/above-harbor-land-beach-ocean.webp",  alt: "Aerial view of a harbor with beach and ocean",           ratio: 1.78, placeholder: false },
+  { src: "/photos/above-harbor-land-beach-ocean.webp",  alt: "Aerial view of a harbor with beach and ocean",           ratio: 1.78, placeholder: false , caption: "Aerial view of a harbor with beach and ocean." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/above-rock.webp",                     alt: "Aerial view of a rocky outcrop",                         ratio: 1.78, placeholder: false },
+  { src: "/photos/above-rock.webp",                     alt: "Aerial view of a rocky outcrop",                         ratio: 1.78, placeholder: false ,  caption: "Aerial view of a rocky outcrop." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/above-sailboat-post-regatta.webp",    alt: "Aerial view of sailboats after a regatta",               ratio: 1.78, placeholder: false },
+  { src: "/photos/above-sailboat-post-regatta.webp",    alt: "Aerial view of sailboats after a regatta",               ratio: 1.78, placeholder: false , caption: "Sailboat packing its sails after the regatta." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/above-sailboat-winner-regatta.webp",  alt: "Aerial view of the winning sailboat at a regatta",       ratio: 1.78, placeholder: false },
+  { src: "/photos/above-sailboat-winner-regatta.webp",  alt: "Aerial view of the winning sailboat at a regatta",       ratio: 1.78, placeholder: false , caption: "Winner of the The 52nd BVI Spring Regatta." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/truck1WebP.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false },
+  { src: "/photos/truck1WebP.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false , caption: "Ford F-150 Driving Through Snow." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/truck2WebP.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false },
+  { src: "/photos/truck2WebP.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false , caption: "Cars Flanking Boulder Canyon with @emerz.alt on insta" },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/truck3WebP.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false },
+  { src: "/photos/truck3WebP.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false, caption: "@emerz.alt on insta Driving Trucks Through Snow" },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/Timeline%201_01_03_07%3B11_WebP.webp", alt: "Sailing footage still", ratio: 1.78, placeholder: false },
+  { src: "/photos/Timeline%201_01_03_07%3B11_WebP.webp", alt: "Sailing footage still", ratio: 1.78, placeholder: false , caption: "Convoy Through Boulder Canyon, with @emerz.alt on insta" },
 ];
 
 export default function PhotographyGallery() {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const [captionOpen, setCaptionOpen] = useState(false);
+
+  useEffect(() => {
+    setCaptionOpen(false);
+  }, [lightboxIdx]);
 
   useEffect(() => {
     if (lightboxIdx === null) return;
@@ -179,9 +184,27 @@ export default function PhotographyGallery() {
               </button>
             </div>
             {photos[lightboxIdx].caption && (
-              <p className="text-sm text-neutral-400 text-center mt-3 max-w-[75vw]">
-                {photos[lightboxIdx].caption}
-              </p>
+              <>
+                <button
+                  onClick={() => setCaptionOpen((o) => !o)}
+                  className="mt-3 text-xs text-neutral-500 hover:text-neutral-300 transition-colors duration-150 focus:outline-none"
+                >
+                  {captionOpen ? "Hide description" : "Show description"}
+                </button>
+                <div
+                  style={{
+                    maxHeight: captionOpen ? "200px" : "0",
+                    overflow: "hidden",
+                    transition: "max-height 250ms ease",
+                  }}
+                >
+                  <div className="mt-2 px-4 py-3 rounded-lg max-w-[75vw] bg-black/8 dark:bg-black/40">
+                    <p className="text-sm text-neutral-400 text-center">
+                      {photos[lightboxIdx].caption}
+                    </p>
+                  </div>
+                </div>
+              </>
             )}
           </div>
         </div>
