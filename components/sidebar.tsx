@@ -42,7 +42,7 @@ const socialLinks = [
     href: "https://www.linkedin.com/in/charlie-ramus-776366398/",
     label: "LinkedIn",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
         <rect width="4" height="12" x="2" y="9"/>
         <circle cx="4" cy="4" r="2"/>
@@ -53,7 +53,7 @@ const socialLinks = [
     href: "https://github.com/Wazoooman",
     label: "GitHub",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
         <path d="M9 18c-4.51 2-5-2-7-2"/>
       </svg>
@@ -63,7 +63,7 @@ const socialLinks = [
     href: "https://www.instagram.com/chahramii/",
     label: "Instagram",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
         <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
@@ -74,7 +74,7 @@ const socialLinks = [
 
 function SocialRow() {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-5">
       {socialLinks.map(({ href, label, icon }) => (
         <a
           key={label}
@@ -82,7 +82,7 @@ function SocialRow() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
-          className="text-muted hover:text-orange transition-colors duration-200"
+          className="text-muted hover:text-accent transition-colors duration-200"
         >
           {icon}
         </a>
@@ -118,9 +118,14 @@ export default function Sidebar() {
   return (
     <>
       {/* ── Desktop sidebar ── */}
-      <aside className="hidden md:flex fixed left-0 top-0 h-full w-70 flex-col bg-bg z-40 px-10 py-14">
+      <aside className="hidden md:flex fixed left-0 top-0 h-full w-70 xl:w-[35%] flex-col items-center z-40 px-10 py-14">
+        {/* Theme toggle at very top */}
+        <div className="mb-10">
+          <ThemeToggle />
+        </div>
+
         {/* Name block */}
-        <div className="mb-8">
+        <div className="mb-8 text-center">
           {/* CUSTOMIZE: name */}
           <p className="text-[22px] font-bold text-fg leading-tight tracking-tight">
             Charlie Ramus
@@ -135,18 +140,13 @@ export default function Sidebar() {
           </p>
         </div>
 
-        {/* Social icons */}
-        <div className="mb-10">
-          <SocialRow />
-        </div>
-
         {/* Nav links */}
-        <nav className="flex-1">
+        <nav className="flex-1 w-full">
           <ul className="space-y-5">
             {NAV_LINKS.map(({ href, label, id }) => {
               const isActive = activeSection === id;
               return (
-                <li key={id} className="flex items-center gap-4">
+                <li key={id} className="flex items-center justify-center gap-4">
                   <span
                     className={`h-px shrink-0 transition-all duration-200 ${
                       isActive ? "w-16 bg-fg" : "w-8 bg-muted/30"
@@ -163,7 +163,7 @@ export default function Sidebar() {
                 </li>
               );
             })}
-            <li className="flex items-center gap-4">
+            <li className="flex items-center justify-center gap-4">
               <span className="h-px w-8 shrink-0 bg-transparent" />
               <Link
                 href="/photography"
@@ -175,8 +175,10 @@ export default function Sidebar() {
           </ul>
         </nav>
 
-        {/* Theme toggle at very bottom */}
-        <ThemeToggle />
+        {/* Social icons — centered near bottom */}
+        <div className="flex justify-center mt-8">
+          <SocialRow />
+        </div>
       </aside>
 
       {/* ── Mobile header ── */}

@@ -53,7 +53,7 @@ export default function Projects() {
     <section id="projects" className="py-20 px-10 md:px-16">
       <div className="flex flex-col gap-10 max-w-165">
         {projects.map((project) => (
-          <div key={project.title} className="flex gap-5">
+          <div key={project.title} className="flex gap-5 -mx-3 px-3 py-3 rounded-lg hover:bg-[rgba(0,0,0,0.06)] dark:hover:bg-[rgba(255,255,255,0.04)] transition-colors duration-200">
             {/* Thumbnail */}
             <div className="w-22 h-16.5 shrink-0 rounded-sm overflow-hidden bg-surface" />
 
@@ -63,7 +63,7 @@ export default function Projects() {
                 href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[15px] font-medium text-fg hover:text-orange transition-colors duration-200 mb-1"
+                className="inline-flex items-center gap-1 text-[15px] font-medium text-fg hover:text-accent transition-colors duration-200 mb-1"
               >
                 {project.title}
                 <ArrowUpRight size={14} className="shrink-0" />
@@ -78,7 +78,7 @@ export default function Projects() {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[11px] font-medium px-2.5 py-1 bg-rule text-orange rounded-sm"
+                    className="text-[11px] font-medium px-2.5 py-1 bg-rule text-accent rounded-sm"
                   >
                     {tag}
                   </span>
@@ -94,7 +94,7 @@ export default function Projects() {
           href="https://github.com/Wazoooman"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[13px] text-fg hover:text-orange transition-colors duration-200"
+          className="text-[13px] text-fg hover:text-accent transition-colors duration-200"
         >
           View Full Project Archive →
         </a>

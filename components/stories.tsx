@@ -45,7 +45,7 @@ export default function Stories() {
             href={story.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-5 py-5 -mx-3 px-3 hover:bg-surface transition-colors duration-200"
+            className="flex items-center gap-5 py-5 -mx-3 px-3 rounded-lg hover:bg-[rgba(0,0,0,0.06)] dark:hover:bg-[rgba(255,255,255,0.04)] transition-colors duration-200"
           >
             <div className="w-20 h-20 shrink-0 rounded-sm bg-surface" />
             <div className="min-w-0">
@@ -58,11 +58,13 @@ export default function Stories() {
           </a>
         ))}
       </div>
-      {/* CUSTOMIZE: link to blog or external writing platform */}
       <div className="mt-10">
+        {/* CUSTOMIZE: replace href with your writing platform URL or /writing route */}
         <a
-          href="#"
-          className="text-[13px] text-fg hover:text-orange transition-colors duration-200"
+          href="https://"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[13px] text-fg hover:text-accent transition-colors duration-200"
         >
           View All Writing →
         </a>

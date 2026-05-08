@@ -7,6 +7,8 @@
   --rule: #dddcd7;
   --surface: #eaeae5;
   --orange: #FA5B1C;
+  /* light mode: zero orange, accent is black */
+  --accent: #141414;
 }
 
 .dark {
@@ -15,6 +17,8 @@
   --muted: #717171;
   --rule: #272727;
   --surface: #1e1e1e;
+  /* dark mode: accent is orange */
+  --accent: #FA5B1C;
 }
 
 @theme inline {
@@ -24,6 +28,10 @@
   --color-rule: var(--rule);
   --color-surface: var(--surface);
   --color-orange: var(--orange);
+  /* --accent switches at runtime; @theme inline inlines var(--accent) so
+     utilities like text-accent compile to `color: var(--accent)` and
+     resolve correctly when .dark is toggled on <html>. */
+  --color-accent: var(--accent);
   --font-sans: var(--font-inter, "Inter", sans-serif);
 }
 

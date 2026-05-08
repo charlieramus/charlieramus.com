@@ -73,9 +73,9 @@ const entries = [
 export default function Experience() {
   return (
     <section id="experience" className="py-20 px-10 md:px-16">
-      <div className="flex flex-col gap-12 max-w-[660px]">
+      <div className="flex flex-col gap-12 max-w-165">
         {entries.map((entry, i) => (
-          <div key={i} className="flex gap-6 md:gap-8">
+          <div key={i} className="flex gap-6 md:gap-8 -mx-3 px-3 py-2 rounded-lg hover:bg-[rgba(0,0,0,0.06)] dark:hover:bg-[rgba(255,255,255,0.04)] transition-colors duration-200">
             <div className="w-28 shrink-0 pt-0.5">
               <span className="text-[12px] text-muted leading-tight">{entry.dates}</span>
             </div>
@@ -87,13 +87,13 @@ export default function Experience() {
                     href={entry.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-0.5 text-orange hover:opacity-80 transition-opacity duration-200"
+                    className="inline-flex items-center gap-0.5 text-accent hover:opacity-80 transition-opacity duration-200"
                   >
                     <span className="text-[15px]">{entry.org}</span>
                     <ArrowUpRight size={14} />
                   </a>
                 ) : (
-                  <span className="text-[15px] text-orange">{entry.org}</span>
+                  <span className="text-[15px] text-accent">{entry.org}</span>
                 )}
               </div>
               {entry.links.length > 0 && (
@@ -119,7 +119,7 @@ export default function Experience() {
                 {entry.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[11px] font-medium px-2.5 py-1 bg-rule text-orange rounded-sm"
+                    className="text-[11px] font-medium px-2.5 py-1 bg-rule text-accent rounded-sm"
                   >
                     {tag}
                   </span>
@@ -135,7 +135,7 @@ export default function Experience() {
           href="https://"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[13px] text-fg hover:text-orange transition-colors duration-200"
+          className="text-[13px] text-fg hover:text-accent transition-colors duration-200"
         >
           View Full Résumé →
         </a>
