@@ -3,70 +3,53 @@ import { ArrowUpRight, Link2 } from "lucide-react";
 const entries = [
   {
     // CUSTOMIZE: date range string
-    dates: "2024 — Present",
+    dates: "2026 — Present",
     // CUSTOMIZE: position name
-    title: "Role Title",
+    title: "Founder & Developer",
     // CUSTOMIZE: company or org name
-    org: "Organization",
+    org: "Querryn",
     // CUSTOMIZE: org link URL, set "" to hide arrow icon
-    href: "https://",
+    href: "https://github.com/Wazoooman/Querryn",
     // CUSTOMIZE: reference links, or set to []
-    links: [{ label: "Link Label", href: "https://" }],
+    links: [{ label: "Github", href: "https://github.com/Wazoooman/Querryn" }],
     // CUSTOMIZE: 2-4 sentence description of what you did and learned
-    description: "What you did.",
+    description: "Responsibilities span full product development including architecture, feature design, DOM analysis logic, a curated credibility scoring system cross-referencing 60+ institutional domains, and UI design.",
     // CUSTOMIZE: skill tag strings
-    tags: ["Skill"],
+    tags: ["JavaScript, Chrome Extensions, Branding, Product Design"],
   },
   // --- ENTRY 2: copy structure above ---
   {
     // CUSTOMIZE: date range string
-    dates: "2024 — Present",
+    dates: "2025 — Present",
     // CUSTOMIZE: position name
-    title: "Role Title",
+    title: "Independant Content Creator & Builder",
     // CUSTOMIZE: company or org name
-    org: "Organization",
+    org: "",
     // CUSTOMIZE: org link URL, set "" to hide arrow icon
     href: "",
     // CUSTOMIZE: reference links, or set to []
     links: [],
     // CUSTOMIZE: 2-4 sentence description of what you did and learned
-    description: "What you did.",
+    description: "Built a Bloxburg community. Designed and shared original architectural builds grabbing over 300,000+ Interactions, created tutorial content, and engaged a community of fellow builders. Operated solo across all functions, architectural design, content production, community engagement, and audience growth.",
     // CUSTOMIZE: skill tag strings
-    tags: ["Skill"],
+    tags: ["Community Building, Online Content Creation, Figma (Software), 3D Modeling "],
   },
   // --- ENTRY 3: copy structure above ---
   {
     // CUSTOMIZE: date range string
-    dates: "2024 — Present",
+    dates: "2021 — Present",
     // CUSTOMIZE: position name
-    title: "Role Title",
+    title: "Independant Photographer & Videographer",
     // CUSTOMIZE: company or org name
-    org: "Organization",
+    org: "",
     // CUSTOMIZE: org link URL, set "" to hide arrow icon
     href: "",
     // CUSTOMIZE: reference links, or set to []
     links: [],
     // CUSTOMIZE: 2-4 sentence description of what you did and learned
-    description: "What you did.",
+    description: "Independent photographer focused on landscape, outdoor, and documentary photography across the Colorado Front Range & Various traveling experiences. Maintain dedicated photography presence on Instagram showcasing recent work and documentary photography. Photo credit in Boulder Reporting Lab coverage of regional wildfires.",
     // CUSTOMIZE: skill tag strings
-    tags: ["Skill"],
-  },
-  // --- ENTRY 4: copy structure above ---
-  {
-    // CUSTOMIZE: date range string
-    dates: "2024 — Present",
-    // CUSTOMIZE: position name
-    title: "Role Title",
-    // CUSTOMIZE: company or org name
-    org: "Organization",
-    // CUSTOMIZE: org link URL, set "" to hide arrow icon
-    href: "",
-    // CUSTOMIZE: reference links, or set to []
-    links: [],
-    // CUSTOMIZE: 2-4 sentence description of what you did and learned
-    description: "What you did.",
-    // CUSTOMIZE: skill tag strings
-    tags: ["Skill"],
+    tags: ["Photograpghy, Videography, Adobe Lightroom, Visual Storytelling"],
   },
 ];
 
