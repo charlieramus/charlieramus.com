@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import PhotographyGallery from "@/components/photography-gallery";
 
 export const metadata: Metadata = {
   title: "Photography",
   description:
-    "Photography by Charlie Ramus — documentary and landscape work from Boulder County, Colorado.",
+    "Photography by Charlie Ramus — aerial and sailing photography from regattas and coastal landscapes.",
 };
-
-const photos = Array.from({ length: 8 }, (_, i) => ({
-  aspect: i % 2 === 0 ? "4/3" : "3/4",
-}));
 
 export default function PhotographyPage() {
   return (
@@ -23,16 +20,7 @@ export default function PhotographyPage() {
         Back
       </Link>
 
-      <div className="columns-1 sm:columns-2 md:columns-3 gap-2">
-        {photos.map((photo, i) => (
-          // CUSTOMIZE: replace div with <Image> src paths for real photos
-          <div
-            key={i}
-            className="w-full mb-2 bg-[#1e1e1e] hover:opacity-85 transition-opacity duration-200 break-inside-avoid"
-            style={{ aspectRatio: photo.aspect }}
-          />
-        ))}
-      </div>
+      <PhotographyGallery />
     </div>
   );
 }
