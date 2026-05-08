@@ -1,83 +1,103 @@
 import { ArrowUpRight } from "lucide-react";
 
-const ACCENTS = [
-  { bg: "rgba(196, 97, 58, 0.15)", text: "#c4613a" },
-  { bg: "rgba(122, 140, 78, 0.15)", text: "#7a8c4e" },
-  { bg: "rgba(201, 168, 76, 0.15)", text: "#c9a84c" },
-  { bg: "rgba(72, 3, 3, 0.15)", text: "#480303" },
-];
-
-const rawProjects = [
+const projects = [
   {
+    // CUSTOMIZE: project screenshot path
+    image: "/images/project1.png",
+    // CUSTOMIZE: project title
     title: "Bioinfo CLI",
-    description: "Command line tool for parsing and visualizing genomic sequence data.",
+    // CUSTOMIZE: project URL
+    href: "https://github.com/Wazoooman",
+    // CUSTOMIZE: 1-3 sentence description
+    description:
+      "Command line tool for parsing and visualizing genomic sequence data.",
+    // CUSTOMIZE: stat string like "★ 713" or "" to hide
+    stat: "",
+    // CUSTOMIZE: skill tag strings
     tags: ["Python", "Biopython", "Click"],
-    href: "https://github.com/Wazoooman",
   },
+  // --- PROJECT 2: copy structure above ---
   {
+    // CUSTOMIZE: project screenshot path
+    image: "/images/project2.png",
+    // CUSTOMIZE: project title
     title: "Storefront",
+    // CUSTOMIZE: project URL
+    href: "https://github.com/Wazoooman",
+    // CUSTOMIZE: 1-3 sentence description
     description: "Lightweight e-commerce template built for fast deployment.",
+    // CUSTOMIZE: stat string like "★ 713" or "" to hide
+    stat: "",
+    // CUSTOMIZE: skill tag strings
     tags: ["Next.js", "Stripe", "Tailwind"],
-    href: "https://github.com/Wazoooman",
   },
+  // --- PROJECT 3: copy structure above ---
   {
+    // CUSTOMIZE: project screenshot path
+    image: "/images/project3.png",
+    // CUSTOMIZE: project title
     title: "This Site",
-    description: "Personal portfolio, designed and built from scratch.",
-    tags: ["Next.js", "TypeScript", "Tailwind"],
+    // CUSTOMIZE: project URL
     href: "https://github.com/Wazoooman",
+    // CUSTOMIZE: 1-3 sentence description
+    description: "Personal portfolio, designed and built from scratch.",
+    // CUSTOMIZE: stat string like "★ 713" or "" to hide
+    stat: "",
+    // CUSTOMIZE: skill tag strings
+    tags: ["Next.js", "TypeScript", "Tailwind"],
   },
 ];
-
-let globalTagIndex = 0;
-const projects = rawProjects.map((p) => ({
-  ...p,
-  tags: p.tags.map((tag) => {
-    const accent = ACCENTS[globalTagIndex % ACCENTS.length];
-    globalTagIndex++;
-    return { label: tag, accent };
-  }),
-}));
 
 export default function Projects() {
   return (
     <section id="projects" className="py-20 px-10 md:px-16">
-      <h2 className="text-[13px] uppercase tracking-[0.15em] text-muted mb-10">
-        Projects
-      </h2>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-10 max-w-165">
         {projects.map((project) => (
-          <div
-            key={project.title}
-            className="relative p-6 bg-surface transition-shadow duration-200 hover:shadow-md"
-          >
-            <a
-              href={project.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View ${project.title} on GitHub`}
-              className="absolute top-6 right-6 text-muted hover:text-a1 transition-colors duration-200"
-            >
-              <ArrowUpRight size={16} />
-            </a>
-            <h3 className="text-[18px] font-medium text-fg mb-2 pr-8">
-              {project.title}
-            </h3>
-            <p className="text-[15px] text-muted leading-[1.7] mb-4">
-              {project.description}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {project.tags.map(({ label, accent }) => (
-                <span
-                  key={label}
-                  className="text-[12px] font-medium px-2.5 py-1"
-                  style={{ backgroundColor: accent.bg, color: accent.text }}
-                >
-                  {label}
-                </span>
-              ))}
+          <div key={project.title} className="flex gap-5">
+            {/* Thumbnail */}
+            <div className="w-22 h-16.5 shrink-0 rounded-sm overflow-hidden bg-surface" />
+
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-[15px] font-medium text-fg hover:text-orange transition-colors duration-200 mb-1"
+              >
+                {project.title}
+                <ArrowUpRight size={14} className="shrink-0" />
+              </a>
+              <p className="text-[13px] text-muted leading-[1.7] mb-2">
+                {project.description}
+              </p>
+              {project.stat && (
+                <p className="text-[12px] text-muted mb-2">{project.stat}</p>
+              )}
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[11px] font-medium px-2.5 py-1 bg-rule text-orange rounded-sm"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         ))}
+      </div>
+      {/* CUSTOMIZE: link to /projects archive page or GitHub profile */}
+      <div className="mt-10">
+        <a
+          href="https://github.com/Wazoooman"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[13px] text-fg hover:text-orange transition-colors duration-200"
+        >
+          View Full Project Archive →
+        </a>
       </div>
     </section>
   );

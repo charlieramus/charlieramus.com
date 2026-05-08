@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/providers";
+import CursorGlow from "@/components/cursor-glow";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "700"],
   variable: "--font-inter",
 });
 
@@ -45,7 +46,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body className="bg-bg text-fg antialiased font-sans">
-        <Providers>{children}</Providers>
+        <Providers>
+          <CursorGlow />
+          {children}
+        </Providers>
       </body>
     </html>
   );

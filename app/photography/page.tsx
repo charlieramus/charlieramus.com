@@ -14,10 +14,10 @@ const photos = Array.from({ length: 8 }, (_, i) => ({
 
 export default function PhotographyPage() {
   return (
-    <div className="min-h-screen bg-[#0f0f0f] text-[#f0ede8] px-8 py-10">
+    <div className="min-h-screen bg-[#141414] text-[#f4f3ee] px-8 py-10">
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-[#7a7a7a] hover:text-[#f0ede8] transition-colors duration-200 mb-10 text-[13px]"
+        className="inline-flex items-center gap-2 text-[#717171] hover:text-[#f4f3ee] transition-colors duration-200 mb-10 text-[13px]"
       >
         <ArrowLeft size={14} />
         Back
@@ -25,9 +25,10 @@ export default function PhotographyPage() {
 
       <div className="columns-1 sm:columns-2 md:columns-3 gap-2">
         {photos.map((photo, i) => (
+          // CUSTOMIZE: replace div with <Image> src paths for real photos
           <div
             key={i}
-            className="w-full mb-2 bg-[#1a1a1a] hover:opacity-80 transition-opacity duration-200 break-inside-avoid"
+            className="w-full mb-2 bg-[#1e1e1e] hover:opacity-85 transition-opacity duration-200 break-inside-avoid"
             style={{ aspectRatio: photo.aspect }}
           />
         ))}

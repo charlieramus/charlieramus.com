@@ -2,18 +2,35 @@ import { ArrowUpRight } from "lucide-react";
 
 const stories = [
   {
-    year: 2025,
+    // CUSTOMIZE: thumbnail image path
+    image: "/images/story1.jpg",
+    // CUSTOMIZE: publication year
+    year: "2025",
+    // CUSTOMIZE: article/post title
     title: "What Building Online Taught Me About Showing Up",
+    // CUSTOMIZE: link to article
     href: "#",
   },
+  // --- STORY 2 ---
   {
-    year: 2025,
+    // CUSTOMIZE: thumbnail image path
+    image: "/images/story2.jpg",
+    // CUSTOMIZE: publication year
+    year: "2025",
+    // CUSTOMIZE: article/post title
     title: "Why I Started Combining Code and Biology",
+    // CUSTOMIZE: link to article
     href: "#",
   },
+  // --- STORY 3 ---
   {
-    year: 2024,
+    // CUSTOMIZE: thumbnail image path
+    image: "/images/story3.jpg",
+    // CUSTOMIZE: publication year
+    year: "2024",
+    // CUSTOMIZE: article/post title
     title: "How I Grew an Architecture Audience Without a Plan",
+    // CUSTOMIZE: link to article
     href: "#",
   },
 ];
@@ -21,18 +38,17 @@ const stories = [
 export default function Stories() {
   return (
     <section id="stories" className="py-20 px-10 md:px-16">
-      <h2 className="text-[13px] uppercase tracking-[0.15em] text-muted mb-10">
-        Stories
-      </h2>
-      <div className="flex flex-col divide-y divide-rule">
+      <div className="flex flex-col divide-y divide-rule max-w-165">
         {stories.map((story, i) => (
           <a
             key={i}
             href={story.href}
-            className="flex items-center gap-5 py-5 -mx-3 px-3 rounded-sm hover:bg-surface transition-colors duration-200"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-5 py-5 -mx-3 px-3 hover:bg-surface transition-colors duration-200"
           >
-            <div className="w-20 h-20 bg-surface rounded-[4px] shrink-0" />
-            <div>
+            <div className="w-20 h-20 shrink-0 rounded-sm bg-surface" />
+            <div className="min-w-0">
               <p className="text-[12px] text-muted mb-1">{story.year}</p>
               <h3 className="text-[15px] font-medium text-fg inline-flex items-center gap-1.5 leading-snug">
                 {story.title}
@@ -41,6 +57,15 @@ export default function Stories() {
             </div>
           </a>
         ))}
+      </div>
+      {/* CUSTOMIZE: link to blog or external writing platform */}
+      <div className="mt-10">
+        <a
+          href="#"
+          className="text-[13px] text-fg hover:text-orange transition-colors duration-200"
+        >
+          View All Writing →
+        </a>
       </div>
     </section>
   );
