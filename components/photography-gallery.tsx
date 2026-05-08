@@ -103,11 +103,11 @@ const photos: Photo[] = [
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
   { src: "/photos/above-sailboat-winner-regatta.webp",  alt: "Aerial view of the winning sailboat at a regatta",       ratio: 1.78, placeholder: false },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/truck1webp.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false },
+  { src: "/photos/truck1WebP.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/truck2webp.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false },
+  { src: "/photos/truck2WebP.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/truck3webp.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false },
+  { src: "/photos/truck3WebP.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
   { src: "/photos/Timeline%201_01_03_07%3B11_WebP.webp", alt: "Sailing footage still", ratio: 1.78, placeholder: false },
 ];
