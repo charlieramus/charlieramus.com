@@ -13,6 +13,7 @@ export default function CursorGlow() {
   useEffect(() => setMounted(true), []);
 
   if (pathname === "/photography") return null;
+  if (pathname.startsWith("/writing/")) return null;
   if (mounted && resolvedTheme === "light") return null;
 
   return (

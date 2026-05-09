@@ -136,7 +136,7 @@ export default function Sidebar() {
           </p>
           {/* CUSTOMIZE: 1-2 sentence description, casual plain language */}
           <p className="text-[13px] text-muted mt-2 leading-[1.6]">
-            Building software at the edge of biology and technology.
+            Building with anything I can get my hands on.
           </p>
         </div>
 

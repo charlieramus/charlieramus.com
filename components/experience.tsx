@@ -30,7 +30,7 @@ const entries = [
     // CUSTOMIZE: reference links, or set to []
     links: [],
     // CUSTOMIZE: 2-4 sentence description of what you did and learned
-    description: "Built a Bloxburg community. Designed and shared original architectural builds grabbing over 300,000+ Interactions, created tutorial content, and engaged a community of fellow builders. Operated solo across all functions, architectural design, content production, community engagement, and audience growth.",
+    description: "Built a architecture community. Designed and shared original architectural builds grabbing over 300,000+ Interactions, created tutorial content, and engaged a community of fellow builders. Operated solo across all functions, architectural design, content production, community engagement, and audience growth.",
     // CUSTOMIZE: skill tag strings
     tags: ["Community Building, Online Content Creation, Figma (Software), 3D Modeling "],
   },
