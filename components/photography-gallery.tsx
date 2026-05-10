@@ -4,6 +4,69 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { X } from "lucide-react";
 
+function isMothersDayToday(): boolean {
+  const now = new Date();
+  if (now.getMonth() !== 4) return false;
+  let sundays = 0;
+  const d = new Date(now.getFullYear(), 4, 1);
+  while (d.getMonth() === 4) {
+    if (d.getDay() === 0) sundays++;
+    if (sundays === 2 && d.getDate() === now.getDate()) return true;
+    d.setDate(d.getDate() + 1);
+  }
+  return false;
+}
+
+function MothersDayCard({ onDismiss }: { onDismiss: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-60 flex items-center justify-center"
+      style={{ background: "rgba(0,0,0,0.6)" }}
+      onClick={onDismiss}
+    >
+      <div
+        className="relative bg-white rounded-2xl max-w-105 w-full mx-4"
+        style={{ padding: "2.5rem", boxShadow: "0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.10)" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onDismiss}
+          aria-label="Close"
+          className="absolute top-4 right-4 transition-colors duration-150"
+          style={{ color: "#bbb" }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "#555")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "#bbb")}
+        >
+          <X size={17} />
+        </button>
+
+        {/* Decorative top motif — a single centered rule */}
+        <div className="flex items-center justify-center mb-8">
+          <div style={{ height: "1px", width: "48px", background: "#d4d4d4" }} />
+        </div>
+
+        {/* CUSTOMIZE: heading line */}
+        <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1a1a1a", marginBottom: "1rem" }}>
+          Happy Mother's Day
+        </h2>
+
+        {/* CUSTOMIZE: I know I'm not always great at saying it, but I think about how lucky I am to have you as my mom more than you'd guess. You have always been there, and always supported me. */}
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "16px", lineHeight: "1.8", color: "#555", marginBottom: "1.5rem" }}>
+          <p>
+            I know I'm not always great at saying it, but I think about how lucky I am to have you as my mom more than you'd guess. You have always been there, and always supported me. I hope we have another wonderful year together, and I cant't wait to see what new trips and adventures we get to share. I hope that when we part (college), this site can be used as another form of link between our realities, it features a website I will update frequently with all my photos and hopefully videos eventually. 
+          </p>
+          <p style={{ marginTop: "1rem" }}>
+            Love you so much. - Charlie
+          </p>
+        </div>
+
+        {/* CUSTOMIZE: closing line */}
+        <p style={{ fontSize: "13px", color: "#aaa", textAlign: "right" }}>— Charlie</p>
+      </div>
+    </div>
+  );
+}
+
 type Photo = {
   src: string
   alt: string
@@ -115,6 +178,19 @@ const photos: Photo[] = [
 export default function PhotographyGallery() {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const [captionOpen, setCaptionOpen] = useState(false);
+  const [showMothersDay, setShowMothersDay] = useState(false);
+
+  useEffect(() => {
+    const key = `mothers-day-dismissed-${new Date().getFullYear()}`;
+    if (isMothersDayToday() && !sessionStorage.getItem(key)) {
+      setShowMothersDay(true);
+    }
+  }, []);
+
+  const dismissMothersDay = () => {
+    sessionStorage.setItem(`mothers-day-dismissed-${new Date().getFullYear()}`, "1");
+    setShowMothersDay(false);
+  };
 
   useEffect(() => {
     setCaptionOpen(false);
@@ -131,6 +207,7 @@ export default function PhotographyGallery() {
 
   return (
     <>
+      {showMothersDay && <MothersDayCard onDismiss={dismissMothersDay} />}
       <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-4 max-w-4xl mx-auto">
         {photos.map((photo, idx) => (
           <div key={photo.src || String(idx)} className="break-inside-avoid mb-4">
