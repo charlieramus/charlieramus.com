@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { X } from "lucide-react";
 
 function isMothersDayToday(): boolean {
@@ -56,7 +57,7 @@ function MothersDayCard({ onDismiss }: { onDismiss: () => void }) {
             I know I'm not always great at saying it, but I think about how lucky I am to have you as my mom more than you'd guess. You have always been there, and always supported me. I hope we have another wonderful year together, and I cant't wait to see what new trips and adventures we get to share. I hope that when we part (college), this site can be used as another form of link between our realities, it features a website I will update frequently with all my photos and hopefully videos eventually. 
           </p>
           <p style={{ marginTop: "1rem" }}>
-            Love you so much. - Charlie
+            Love you so much.
           </p>
         </div>
 
@@ -121,6 +122,10 @@ const photos: Photo[] = [
   { src: "/photos/20251225-IMG_1987_WebP.webp",    alt: "December 2025",     ratio: 1.5,   placeholder: false , caption: "A satalite near Boulder, CO. In the past used for radio emissions from satellites, space weather, and atmospheric data and operated by NTIA/ITS and NOAA" },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
   { src: "/photos/20251225-IMG_1988_WebP.webp",    alt: "December 2025",     ratio: 1.5,   placeholder: false , caption: "The milky way. Taken in a bortle 4 on a F/4." },
+  // CUSTOMIZE: add caption text here, leave undefined to show nothing
+  { src: "/photos/20260509-IMGL9576.webp", alt: "Ford F-150 parked on a gravel mountain road surrounded by tall pines under a dramatic cloudy sky", ratio: 0.667, placeholder: false, caption: "F-150 on a mountain road in Colorado." },
+  // CUSTOMIZE: add caption text here, leave undefined to show nothing
+  { src: "/photos/20260509-IMGL9770.webp", alt: "Ford F-150 Tremor parked in a mountain meadow with snow-dusted peaks and pine trees in the background", ratio: 0.667, placeholder: false, caption: "Ford F-150 Tremor at elevation, Colorado." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
   { src: "/photos/20260304-IMGL3696_WebP.webp",    alt: "March 2026",        ratio: 1.5,   placeholder: false , caption: "Brand new fire Helicopter Flying over Boulder Colorado responding to the Heil fire." },
   // CUSTOMIZE: add caption text here, leave undefined to show nothing
@@ -234,6 +239,16 @@ export default function PhotographyGallery() {
             )}
           </div>
         ))}
+      </div>
+
+      <div className="flex flex-col items-center mt-12 gap-3">
+        <p className="text-xs text-neutral-600">That&apos;s everything for now. More adventures are in the works.</p>
+        <Link
+          href="/gear"
+          className="text-xs text-neutral-500 hover:text-neutral-300 transition-colors duration-150"
+        >
+          Gear List
+        </Link>
       </div>
 
       {lightboxIdx !== null && (
