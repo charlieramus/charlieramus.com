@@ -5,7 +5,7 @@ const entries = [
     // CUSTOMIZE: date range string
     dates: "2026 — Present",
     // CUSTOMIZE: position name
-    title: "Founder & Developer",
+    title: "Developer",
     // CUSTOMIZE: company or org name
     org: "Querryn",
     // CUSTOMIZE: org link URL, set "" to hide arrow icon
@@ -25,7 +25,7 @@ const entries = [
     title: "Independant Content Creator & Builder",
     // CUSTOMIZE: company or org name
     org: "",
-    // CUSTOMIZE: org link URL, set "" to hide arrow icon
+    // CUSTOMIZE: org link URL, set "tas" to hide arrow icon
     href: "",
     // CUSTOMIZE: reference links, or set to []
     links: [],

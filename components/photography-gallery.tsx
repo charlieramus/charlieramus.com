@@ -8,14 +8,25 @@ import { X } from "lucide-react";
 function isMothersDayToday(): boolean {
   const now = new Date();
   if (now.getMonth() !== 4) return false;
+  
+  // Find the second Sunday of May (Mother's Day)
   let sundays = 0;
   const d = new Date(now.getFullYear(), 4, 1);
+  let mothersDayDate = 0;
+  
   while (d.getMonth() === 4) {
-    if (d.getDay() === 0) sundays++;
-    if (sundays === 2 && d.getDate() === now.getDate()) return true;
+    if (d.getDay() === 0) {
+      sundays++;
+      if (sundays === 2) {
+        mothersDayDate = d.getDate();
+        break;
+      }
+    }
     d.setDate(d.getDate() + 1);
   }
-  return false;
+  
+  // Only show on Mother's Day itself
+  return now.getDate() === mothersDayDate;
 }
 
 function MothersDayCard({ onDismiss }: { onDismiss: () => void }) {
@@ -184,8 +195,10 @@ export default function PhotographyGallery() {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const [captionOpen, setCaptionOpen] = useState(false);
   const [showMothersDay, setShowMothersDay] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const key = `mothers-day-dismissed-${new Date().getFullYear()}`;
     if (isMothersDayToday() && !sessionStorage.getItem(key)) {
       setShowMothersDay(true);
