@@ -14,6 +14,8 @@ export default function CursorGlow() {
 
   if (pathname === "/photography") return null;
   if (pathname.startsWith("/writing/")) return null;
+  if (pathname === "/design") return null;
+  if (pathname === "/web-projects") return null;
   if (mounted && resolvedTheme === "light") return null;
 
   return (

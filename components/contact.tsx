@@ -17,8 +17,8 @@ const links: ContactLink[] = [
   },
   {
     label: "GitHub",
-    href: "https://github.com/Wazoooman",
-    display: "Wazoooman",
+    href: "https://github.com/charlieramus",
+    display: "charlieramus",
   },
   {
     label: "Photography",
