@@ -7,7 +7,7 @@ const projects = [
     thumbnail: "/images/projects/this-site.webp",
     title: "This Site",
     // CUSTOMIZE: replace with actual GitHub repo URL
-    href: "https://github.com/charlieramus",
+    href: "https://github.com/charlieramus/charlieramus.com",
     external: true,
     // CUSTOMIZE: 1-2 sentence description of building this portfolio
     description: "Personal portfolio designed and built from scratch — featuring photography, writing, and graphic design.",
