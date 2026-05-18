@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { X } from "lucide-react";
+import { X, Copy, Check } from "lucide-react";
 
 function isMothersDayToday(): boolean {
   const now = new Date();
@@ -75,6 +75,97 @@ function MothersDayCard({ onDismiss }: { onDismiss: () => void }) {
 
         {/* CUSTOMIZE: closing line */}
         <p style={{ fontSize: "13px", color: "#aaa", textAlign: "right" }}>— Charlie</p>
+      </div>
+    </div>
+  );
+}
+
+function InquireModal({ onDismiss }: { onDismiss: () => void }) {
+  const [copied, setCopied] = useState(false);
+
+  const email = "charlie@charlieramus.com";
+  const mailtoHref = "mailto:charlie@charlieramus.com?subject=Print%20Inquiry&body=Photo%20code(s)%3A%20";
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-60 flex items-center justify-center"
+      style={{ background: "rgba(0,0,0,0.6)" }}
+      onClick={onDismiss}
+    >
+      <div
+        className="relative bg-white rounded-2xl max-w-[380px] w-full mx-4"
+        style={{ padding: "2rem", boxShadow: "0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.10)" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onDismiss}
+          aria-label="Close"
+          className="absolute top-4 right-4 transition-colors duration-150"
+          style={{ color: "#bbb" }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "#555")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "#bbb")}
+        >
+          <X size={17} />
+        </button>
+
+        <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1a1a1a", marginBottom: "0.5rem" }}>
+          Get in Touch
+        </h2>
+        {/* CUSTOMIZE: e.g. "For print inquiries, commissions or licensing." */}
+        <p style={{ fontSize: "13px", color: "#888", marginBottom: "1.5rem" }}>
+          For print inquiries, commissions or licensing.
+        </p>
+
+        <button
+          onClick={() => { window.location.href = mailtoHref; }}
+          style={{
+            display: "block",
+            width: "100%",
+            padding: "0.625rem 1rem",
+            background: "#1a1a1a",
+            color: "#fff",
+            border: "none",
+            borderRadius: "8px",
+            fontSize: "14px",
+            fontWeight: 500,
+            cursor: "pointer",
+            marginBottom: "1.25rem",
+          }}
+        >
+          Open in Mail
+        </button>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.25rem" }}>
+          <div style={{ flex: 1, height: "1px", background: "#e5e5e5" }} />
+          <span style={{ fontSize: "12px", color: "#aaa" }}>or</span>
+          <div style={{ flex: 1, height: "1px", background: "#e5e5e5" }} />
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", marginBottom: "1.25rem" }}>
+          <span style={{ fontFamily: "monospace", fontSize: "13px", color: "#555" }}>
+            {email}
+          </span>
+          <button
+            onClick={handleCopy}
+            aria-label="Copy email"
+            style={{ color: "#bbb", background: "none", border: "none", cursor: "pointer", padding: 0, display: "flex", alignItems: "center" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#555")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#bbb")}
+          >
+            {copied ? <Check size={14} /> : <Copy size={14} />}
+          </button>
+        </div>
+
+        {/* CUSTOMIZE: e.g. "Include the photo code from the gallery in your message." */}
+        <p style={{ fontSize: "12px", color: "#bbb", textAlign: "center" }}>
+          Include the photo code from the gallery in your message.
+        </p>
       </div>
     </div>
   );
@@ -198,6 +289,7 @@ export default function PhotographyGallery() {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const [captionOpen, setCaptionOpen] = useState(true);
   const [showMothersDay, setShowMothersDay] = useState(false);
+  const [showInquire, setShowInquire] = useState(false);
 
   useEffect(() => {
     const key = `mothers-day-dismissed-${new Date().getFullYear()}`;
@@ -227,17 +319,16 @@ export default function PhotographyGallery() {
   return (
     <>
       {showMothersDay && <MothersDayCard onDismiss={dismissMothersDay} />}
+      {showInquire && <InquireModal onDismiss={() => setShowInquire(false)} />}
 
-      {/* Floating Inquire button + hand-drawn arrow — fixed bottom-left, only on /photography */}
+      {/* Floating Inquire button — fixed bottom-left, only on /photography */}
       {pathname === "/photography" && (
-        <a
-          href="mailto:charlie@charlieramus.com?subject=Print%20Inquiry&body=Photo%20code(s)%3A%20"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={() => setShowInquire(true)}
           className="fixed bottom-6 left-6 z-40 text-[11px] text-[#FA5B1C] border border-[#FA5B1C] rounded-md px-3 py-1.5 transition-colors duration-200"
         >
           Inquire
-        </a>
+        </button>
       )}
 
       <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-4 max-w-4xl mx-auto">
