@@ -162,9 +162,9 @@ function InquireModal({ onDismiss }: { onDismiss: () => void }) {
           </button>
         </div>
 
-        {/* CUSTOMIZE: e.g. "Include the photo code from the gallery in your message." */}
-        <p style={{ fontSize: "12px", color: "#bbb", textAlign: "center" }}>
-          Include the photo code from the gallery in your message.
+        {/* CUSTOMIZE: e.g. "Please include the photo code(s) from the gallery, They are at the bottom left of each photo when clicked on. " */}
+        <p style={{ fontSize: "14px", color: "#888", textAlign: "center" }}>
+          Please include the photo code(s) from the gallery, They are at the bottom left of each photo when clicked on.
         </p>
       </div>
     </div>
