@@ -1,0 +1,62 @@
+// AUTO-GENERATED — do not edit directly.
+// Edit public/photos/gallery.json, then run: npm run sync-gallery
+
+export type Photo = {
+  src: string;
+  alt: string;
+  ratio: number;
+  placeholder: boolean;
+  caption?: string;
+  code?: string;
+};
+
+export const photos: Photo[] = [
+  { src: "/photos/20260412-IMGL5331-2_WebP.webp", alt: "Colorful coastal buildings in Reykjavik, Iceland", ratio: 0.667, placeholder: false, code: "0001", caption: "Colorful coastal buildings in Reykjavik, Iceland" },
+  { src: "/photos/20260412-IMGL5423-2_WebP.webp", alt: "A Lighthouse pearched on the coast of Reykjavik, Iceland", ratio: 0.667, placeholder: false, code: "0002", caption: "A Lighthouse pearched on the coast of Reykjavik, Iceland" },
+  { src: "/photos/20260412-IMGL5452_WebP.webp", alt: "The Common Eider (Somateria mollissima) Swimming through a channel in Iceland.", ratio: 0.667, placeholder: false, code: "0003", caption: "The Common Eider (Somateria mollissima) Swimming through a channel in Iceland." },
+  { src: "/photos/20260413-IMGL6446_WebP.webp", alt: "A Quiet evening at the Skógafoss waterfall in southern Iceland.", ratio: 0.667, placeholder: false, code: "0004", caption: "A Quiet evening at the Skógafoss waterfall in southern Iceland." },
+  { src: "/photos/20260103-IMGL2280_WebP.webp", alt: "The prominent red winged blackbirds that pearch themselves on the strands of grass surrounding Wonderland lake, Boulder CO.", ratio: 2, placeholder: false, code: "0005", caption: "The prominent red winged blackbirds that pearch themselves on the strands of grass surrounding Wonderland lake, Boulder CO." },
+  { src: "/photos/20260414-IMGL6948_WebP.webp", alt: "A Group of stickers stucken to a old bridge in the middle of soutern iceland. Reperesenting all that have been there.", ratio: 0.667, placeholder: false, code: "0006", caption: "A Group of stickers stucken to a old bridge in the middle of soutern iceland. Reperesenting all that have been there." },
+  { src: "/photos/20260125-IMGL2978_WebP.webp", alt: "A Finch during a snow storm in Boulder, CO.", ratio: 2, placeholder: false, code: "0007", caption: "A Finch during a snow storm in Boulder, CO." },
+  { src: "/photos/20260414-IMGL7042_WebP.webp", alt: "A Figure Admiring the view of a mountain.", ratio: 0.667, placeholder: false, code: "0008", caption: "A Figure Admiring the view of a mountain." },
+  { src: "/photos/20260125-IMGL3001_WebP.webp", alt: "A Golden-crowned Kinglet holding onto a branch during a freak snow storm in Boulder, CO.", ratio: 2, placeholder: false, code: "0009", caption: "A Golden-crowned Kinglet holding onto a branch during a freak snow storm in Boulder, CO." },
+  { src: "/photos/20260414-IMGL7231-2_WebP.webp", alt: "Large peak hidden by the clouds during a rainy day in Iceland.", ratio: 0.667, placeholder: false, code: "0010", caption: "Large peak hidden by the clouds during a rainy day in Iceland." },
+  { src: "/photos/20260130-IMGL3078_WebP.webp", alt: "Ripple effect created by the mixing of sound waves and water.", ratio: 1.999, placeholder: false, code: "0011", caption: "Ripple effect created by the mixing of sound waves and water." },
+  { src: "/photos/20260414-IMGL7170_WebP.webp", alt: "One of Icelands taller peaks hidden by the clouds, measuring around 2000m (6000ft).", ratio: 0.75, placeholder: false, code: "0012", caption: "One of Icelands taller peaks hidden by the clouds, measuring around 2000m (6000ft)." },
+  { src: "/photos/20260411-IMGL5222-3_WebP.webp", alt: "Northern Lights while crossing over Greenland", ratio: 2, placeholder: false, code: "0013", caption: "Northern Lights while crossing over Greenland" },
+  { src: "/photos/untitled-9827_WebP.webp", alt: "Small House on the coast of a Island in the BVI. Sheltered by greenery.", ratio: 0.667, placeholder: false, code: "0014", caption: "Small House on the coast of a Island in the BVI. Sheltered by greenery." },
+  { src: "/photos/20260413-IMGL5814-2_WebP.webp", alt: "A group of fuzzy horses on the coast of iceland. Surrounded by the barren landscape.", ratio: 2, placeholder: false, code: "0015", caption: "A group of fuzzy horses on the coast of iceland. Surrounded by the barren landscape." },
+  { src: "/photos/20260413-IMGL6127-2_WebP.webp", alt: "A Church, one of many identicle ones in Iceland. Surrounded by a large plateau.", ratio: 2, placeholder: false, code: "0016", caption: "A Church, one of many identicle ones in Iceland. Surrounded by a large plateau." },
+  { src: "/photos/20260413-IMGL6347_WebP.webp", alt: "Lonely Horse. :(", ratio: 2, placeholder: false, code: "0017", caption: "Lonely Horse. :(" },
+  { src: "/photos/20260414-IMGL6957-4_WebP.webp", alt: "A mountain range zoomed in to reveal its deep groves.", ratio: 2, placeholder: false, code: "0018", caption: "A mountain range zoomed in to reveal its deep groves." },
+  { src: "/photos/20260414-IMGL7197-2_WebP.webp", alt: "A lonely abandoned barnhouse in the plains of south Iceland.", ratio: 2, placeholder: false, code: "0019", caption: "A lonely abandoned barnhouse in the plains of south Iceland." },
+  { src: "/photos/20251225-IMG_1987_WebP.webp", alt: "A satalite near Boulder, CO. In the past used for radio emissions from satellites, space weather, and atmospheric data and operated by NTIA/ITS and NOAA", ratio: 1.5, placeholder: false, code: "0020", caption: "A satalite near Boulder, CO. In the past used for radio emissions from satellites, space weather, and atmospheric data and operated by NTIA/ITS and NOAA" },
+  { src: "/photos/20251225-IMG_1988_WebP.webp", alt: "The milky way. Taken in a bortle 4 on a F/4.", ratio: 1.5, placeholder: false, code: "0021", caption: "The milky way. Taken in a bortle 4 on a F/4." },
+  { src: "/photos/20260509-IMGL9576.webp", alt: "F-150 on a mountain road in Colorado.", ratio: 0.667, placeholder: false, code: "0022", caption: "F-150 on a mountain road in Colorado." },
+  { src: "/photos/20260509-IMGL9770.webp", alt: "Ford F-150 Tremor at elevation, Colorado.", ratio: 0.667, placeholder: false, code: "0023", caption: "Ford F-150 Tremor at elevation, Colorado." },
+  { src: "/photos/20260304-IMGL3696_WebP.webp", alt: "Brand new fire Helicopter Flying over Boulder Colorado responding to the Heil fire.", ratio: 1.499, placeholder: false, code: "0024", caption: "Brand new fire Helicopter Flying over Boulder Colorado responding to the Heil fire." },
+  { src: "/photos/20260412-IMGL5579-2_WebP.webp", alt: "A looming mountain over Reykjavík in Iceland, Named Kambshorn.", ratio: 1.499, placeholder: false, code: "0025", caption: "A looming mountain over Reykjavík in Iceland, Named Kambshorn." },
+  { src: "/photos/20260413-IMGL5850-3_WebP.webp", alt: "Seljalandsfoss from the front. Long exposures creating a milky water effect.", ratio: 1.499, placeholder: false, code: "0026", caption: "Seljalandsfoss from the front. Long exposures creating a milky water effect." },
+  { src: "/photos/20260413-IMGL5912_WebP.webp", alt: "Walking behind Seljalandsfoss in Iceland.", ratio: 1.499, placeholder: false, code: "0027", caption: "Walking behind Seljalandsfoss in Iceland." },
+  { src: "/photos/20260414-IMGL7020-2_WebP.webp", alt: "A group of strangers looking at the battle ahead. One of the tallest mountains in Iceland.", ratio: 1.499, placeholder: false, code: "0028", caption: "A group of strangers looking at the battle ahead. One of the tallest mountains in Iceland." },
+  { src: "/photos/20260414-IMGL7137-2_WebP.webp", alt: "A relective lake In Iceland On a sunny spring day.", ratio: 1.499, placeholder: false, code: "0029", caption: "A relective lake In Iceland On a sunny spring day." },
+  { src: "/photos/20260414-IMGL7279_WebP.webp", alt: "Washed up Glacier on Dimond Beach - Iceland.", ratio: 1.499, placeholder: false, code: "0030", caption: "Washed up Glacier on Dimond Beach - Iceland." },
+  { src: "/photos/20260414-IMGL7305_WebP.webp", alt: "A Unique Rock Laying in a washed up glacier on Dimond Beach - Iceland", ratio: 1.499, placeholder: false, code: "0031", caption: "A Unique Rock Laying in a washed up glacier on Dimond Beach - Iceland" },
+  { src: "/photos/20260416-IMGL8653_WebP.webp", alt: "Land Rover, Built by @dannytkaze On Instagram", ratio: 1.499, placeholder: false, code: "0032", caption: "Land Rover, Built by @dannytkaze On Instagram" },
+  { src: "/photos/20260416-IMGL8656_WebP.webp", alt: "Land Rover, Built by @dannytkaze On Instagram", ratio: 1.499, placeholder: false, code: "0033", caption: "Land Rover, Built by @dannytkaze On Instagram" },
+  { src: "/photos/20260416-IMGL8658-2_WebP.webp", alt: "Land Rover, Built by @dannytkaze On Instagram", ratio: 1.499, placeholder: false, code: "0034", caption: "Land Rover, Built by @dannytkaze On Instagram" },
+  { src: "/photos/20260417-IMGL8991_WebP.webp", alt: "Clouds forming over Denver during a flight back from Iceland", ratio: 1.499, placeholder: false, code: "0035", caption: "Clouds forming over Denver during a flight back from Iceland" },
+  { src: "/photos/20260102-BM3A2105_WebP.webp", alt: "Whispy clouds rolling over the front range.", ratio: 1.25, placeholder: false, code: "0036", caption: "Whispy clouds rolling over the front range." },
+  { src: "/photos/20260102-BM3A2157_WebP.webp", alt: "A Full Moon Over Colorado.", ratio: 1.25, placeholder: false, code: "0037", caption: "A Full Moon Over Colorado." },
+  { src: "/photos/20260413-IMGL5795_WebP.webp", alt: "A horse on the coast of iceland.", ratio: 1.418, placeholder: false, code: "0038", caption: "A horse on the coast of iceland." },
+  { src: "/photos/above-cat-forest-beach-ocean.webp", alt: "Aerial view of forested coastline with beach and ocean.", ratio: 1.78, placeholder: false, code: "0039", caption: "Aerial view of forested coastline with beach and ocean." },
+  { src: "/photos/above-pano-sunset-cats.webp", alt: "Panoramic aerial view of catamarans at sunset.", ratio: 1.654, placeholder: false, code: "0040", caption: "Panoramic aerial view of catamarans at sunset." },
+  { src: "/photos/above-harbor-land-beach-ocean.webp", alt: "Aerial view of a harbor with beach and ocean.", ratio: 1.78, placeholder: false, code: "0041", caption: "Aerial view of a harbor with beach and ocean." },
+  { src: "/photos/above-rock.webp", alt: "Above head view of a rocky island off cooper island, near cistern point, If you squint theres people in the water!", ratio: 1.78, placeholder: false, code: "0042", caption: "Above head view of a rocky island off cooper island, near cistern point, If you squint theres people in the water!" },
+  { src: "/photos/above-sailboat-post-regatta.webp", alt: "Sailboat packing its sails after the regatta.", ratio: 1.777, placeholder: false, code: "0043", caption: "Sailboat packing its sails after the regatta." },
+  { src: "/photos/above-sailboat-winner-regatta.webp", alt: "Winner of the The 52nd BVI Spring Regatta.", ratio: 1.78, placeholder: false, code: "0044", caption: "Winner of the The 52nd BVI Spring Regatta." },
+  { src: "/photos/truck1WebP.webp", alt: "Ford F-150 Driving Through Snow.", ratio: 1.5, placeholder: false, code: "0045", caption: "Ford F-150 Driving Through Snow." },
+  { src: "/photos/truck2WebP.webp", alt: "Cars Flanking Boulder Canyon with @emerz.alt on insta", ratio: 1.5, placeholder: false, code: "0046", caption: "Cars Flanking Boulder Canyon with @emerz.alt on insta" },
+  { src: "/photos/truck3WebP.webp", alt: "@emerz.alt on insta Driving Trucks Through Snow", ratio: 2, placeholder: false, code: "0047", caption: "@emerz.alt on insta Driving Trucks Through Snow" },
+  { src: "/photos/Timeline 1_01_03_07;11_WebP.webp", alt: "Convoy Through Boulder Canyon, with @emerz.alt on insta", ratio: 1.778, placeholder: false, code: "0048", caption: "Convoy Through Boulder Canyon, with @emerz.alt on insta" }
+];
