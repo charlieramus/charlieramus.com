@@ -84,7 +84,7 @@ function InquireModal({ onDismiss }: { onDismiss: () => void }) {
   const [copied, setCopied] = useState(false);
 
   const email = "charlie@charlieramus.com";
-  const mailtoHref = "mailto:charlie@charlieramus.com?subject=Print%20Inquiry&body=Photo%20code(s)%3A%20";
+  const mailtoHref = "mailto:charlie@charlieramus.com?subject=I%27d%20Love%20a%20Print!&body=Hi%20Charlie!%0A%0AI%27m%20interested%20in%20ordering%20a%20print.%20Here%20are%20the%20photo%20code(s)%20I%27d%20like%3A%0A%0A(Paste%20the%20code(s)%20here%20%E2%80%94%20click%20a%20photo%20and%20check%20the%20bottom%20right%20corner%20to%20find%20the%20code)"; 
 
   const handleCopy = () => {
     navigator.clipboard.writeText(email);
