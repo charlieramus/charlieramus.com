@@ -9,9 +9,9 @@ const entries = [
     // CUSTOMIZE: company or org name
     org: "Querryn",
     // CUSTOMIZE: org link URL, set "" to hide arrow icon
-    href: "https://github.com/Wazoooman/Querryn",
+    href: "https://github.com/charlieramus/Querryn",
     // CUSTOMIZE: reference links, or set to []
-    links: [{ label: "Github", href: "https://github.com/Wazoooman/Querryn" }],
+    links: [{ label: "Github", href: "https://github.com/charlieramus/Querryn" }],
     // CUSTOMIZE: 2-4 sentence description of what you did and learned
     description: "Responsibilities span full product development including architecture, feature design, DOM analysis logic, a curated credibility scoring system cross-referencing 60+ institutional domains, and UI design.",
     // CUSTOMIZE: skill tag strings

@@ -1,19 +1,21 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { X } from "lucide-react";
+import { X, Copy, Check } from "lucide-react";
+import { photos } from "@/data/photos";
 
 function isMothersDayToday(): boolean {
   const now = new Date();
   if (now.getMonth() !== 4) return false;
-  
+
   // Find the second Sunday of May (Mother's Day)
   let sundays = 0;
   const d = new Date(now.getFullYear(), 4, 1);
   let mothersDayDate = 0;
-  
+
   while (d.getMonth() === 4) {
     if (d.getDay() === 0) {
       sundays++;
@@ -24,7 +26,7 @@ function isMothersDayToday(): boolean {
     }
     d.setDate(d.getDate() + 1);
   }
-  
+
   // Only show on Mother's Day itself
   return now.getDate() === mothersDayDate;
 }
@@ -65,7 +67,7 @@ function MothersDayCard({ onDismiss }: { onDismiss: () => void }) {
         {/* CUSTOMIZE: I know I'm not always great at saying it, but I think about how lucky I am to have you as my mom more than you'd guess. You have always been there, and always supported me. */}
         <div style={{ fontFamily: "Georgia, serif", fontSize: "16px", lineHeight: "1.8", color: "#555", marginBottom: "1.5rem" }}>
           <p>
-            I know I'm not always great at saying it, but I think about how lucky I am to have you as my mom more than you'd guess. You have always been there, and always supported me. I hope we have another wonderful year together, and I cant't wait to see what new trips and adventures we get to share. I hope that when we part (college), this site can be used as another form of link between our realities, it features a website I will update frequently with all my photos and hopefully videos eventually. 
+            I know I'm not always great at saying it, but I think about how lucky I am to have you as my mom more than you'd guess. You have always been there, and always supported me. I hope we have another wonderful year together, and I cant't wait to see what new trips and adventures we get to share. I hope that when we part (college), this site can be used as another form of link between our realities, it features a website I will update frequently with all my photos and hopefully videos eventually.
           </p>
           <p style={{ marginTop: "1rem" }}>
             Love you so much.
@@ -79,126 +81,106 @@ function MothersDayCard({ onDismiss }: { onDismiss: () => void }) {
   );
 }
 
-type Photo = {
-  src: string
-  alt: string
-  ratio: number
-  placeholder: boolean
-  caption?: string  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-};
+function InquireModal({ onDismiss }: { onDismiss: () => void }) {
+  const [copied, setCopied] = useState(false);
 
-const photos: Photo[] = [
-  // --- portraits (ratio ~0.667) ---
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260412-IMGL5331-2_WebP.webp",  alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "Colorful coastal buildings in Reykjavik, Iceland"},
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260412-IMGL5423-2_WebP.webp",  alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "A Lighthouse pearched on the coast of Reykjavik, Iceland" },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260412-IMGL5452_WebP.webp",    alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "The Common Eider (Somateria mollissima) Swimming through a channel in Iceland." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL6446_WebP.webp",    alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "A Quiet evening at the Skógafoss waterfall in southern Iceland." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260103-IMGL2280_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "The prominent red winged blackbirds that pearch themselves on the strands of grass surrounding Wonderland lake, Boulder CO." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL6948_WebP.webp",    alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "A Group of stickers stucken to a old bridge in the middle of soutern iceland. Reperesenting all that have been there." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260125-IMGL2978_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "A Finch during a snow storm in Boulder, CO." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7042_WebP.webp",    alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "A Figure Admiring the view of a mountain."},
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260125-IMGL3001_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "A Golden-crowned Kinglet holding onto a branch during a freak snow storm in Boulder, CO." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7231-2_WebP.webp",  alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "Large peak hidden by the clouds during a rainy day in Iceland."},
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260130-IMGL3078_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "Ripple effect created by the mixing of sound waves and water." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7170_WebP.webp",    alt: "Portrait",          ratio: 0.75,  placeholder: false , caption: "One of Icelands taller peaks hidden by the clouds, measuring around 2000m (6000ft)."},
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260411-IMGL5222-3_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "Northern Lights while crossing over Greenland" },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/untitled-9827_WebP.webp",        alt: "Portrait",          ratio: 0.667, placeholder: false , caption: "Small House on the coast of a Island in the BVI. Sheltered by greenery."},
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL5814-2_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "A group of fuzzy horses on the coast of iceland. Surrounded by the barren landscape." },
-  // --- double panoramas ---
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL6127-2_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "A Church, one of many identicle ones in Iceland. Surrounded by a large plateau." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL6347_WebP.webp",    alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "Lonely Horse. :(" },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL6957-4_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "A mountain range zoomed in to reveal its deep groves." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7197-2_WebP.webp",  alt: "Sailing panorama",  ratio: 2.0,   placeholder: false , caption: "A lonely abandoned barnhouse in the plains of south Iceland." },
-  // --- 3:2 landscape pairs ---
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20251225-IMG_1987_WebP.webp",    alt: "December 2025",     ratio: 1.5,   placeholder: false , caption: "A satalite near Boulder, CO. In the past used for radio emissions from satellites, space weather, and atmospheric data and operated by NTIA/ITS and NOAA" },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20251225-IMG_1988_WebP.webp",    alt: "December 2025",     ratio: 1.5,   placeholder: false , caption: "The milky way. Taken in a bortle 4 on a F/4." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260509-IMGL9576.webp", alt: "Ford F-150 parked on a gravel mountain road surrounded by tall pines under a dramatic cloudy sky", ratio: 0.667, placeholder: false, caption: "F-150 on a mountain road in Colorado." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260509-IMGL9770.webp", alt: "Ford F-150 Tremor parked in a mountain meadow with snow-dusted peaks and pine trees in the background", ratio: 0.667, placeholder: false, caption: "Ford F-150 Tremor at elevation, Colorado." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260304-IMGL3696_WebP.webp",    alt: "March 2026",        ratio: 1.5,   placeholder: false , caption: "Brand new fire Helicopter Flying over Boulder Colorado responding to the Heil fire." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260412-IMGL5579-2_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "A looming mountain over Reykjavík in Iceland, Named Kambshorn." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL5850-3_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Seljalandsfoss from the front. Long exposures creating a milky water effect." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL5912_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Walking behind Seljalandsfoss in Iceland." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7020-2_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "A group of strangers looking at the battle ahead. One of the tallest mountains in Iceland." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7137-2_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "A relective lake In Iceland On a sunny spring day." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7279_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Washed up Glacier on Dimond Beach - Iceland." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260414-IMGL7305_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "A Unique Rock Laying in a washed up glacier on Dimond Beach - Iceland"},
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260416-IMGL8653_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Land Rover, Built by @dannytkaze On Instagram"},
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260416-IMGL8656_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Land Rover, Built by @dannytkaze On Instagram"},
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260416-IMGL8658-2_WebP.webp",  alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Land Rover, Built by @dannytkaze On Instagram"},
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260417-IMGL8991_WebP.webp",    alt: "Sailing regatta",   ratio: 1.5,   placeholder: false , caption: "Clouds forming over Denver during a flight back from Iceland" },
-  // --- 4:3 + 1.42 ---
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260102-BM3A2105_WebP.webp",    alt: "January 2026",      ratio: 1.25,  placeholder: false , caption: "Whispy clouds rolling over the front range." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260102-BM3A2157_WebP.webp",    alt: "January 2026",      ratio: 1.25,  placeholder: false , caption: "A Full Moon Over Colorado." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/20260413-IMGL5795_WebP.webp",    alt: "Sailing regatta",   ratio: 1.42,  placeholder: false , caption: "A horse on the coast of iceland." },
-  // --- aerial / 16:9 ---
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/above-cat-forest-beach-ocean.webp",   alt: "Aerial view of forested coastline with beach and ocean", ratio: 1.78, placeholder: false , caption: "Aerial view of forested coastline with beach and ocean." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/above-pano-sunset-cats.webp",         alt: "Panoramic aerial view of catamarans at sunset",          ratio: 1.65, placeholder: false , caption: "Panoramic aerial view of catamarans at sunset." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/above-harbor-land-beach-ocean.webp",  alt: "Aerial view of a harbor with beach and ocean",           ratio: 1.78, placeholder: false , caption: "Aerial view of a harbor with beach and ocean." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/above-rock.webp",                     alt: "Aerial view of a rocky outcrop",                         ratio: 1.78, placeholder: false ,  caption: "Aerial view of a rocky outcrop." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/above-sailboat-post-regatta.webp",    alt: "Aerial view of sailboats after a regatta",               ratio: 1.78, placeholder: false , caption: "Sailboat packing its sails after the regatta." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/above-sailboat-winner-regatta.webp",  alt: "Aerial view of the winning sailboat at a regatta",       ratio: 1.78, placeholder: false , caption: "Winner of the The 52nd BVI Spring Regatta." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/truck1WebP.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false , caption: "Ford F-150 Driving Through Snow." },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/truck2WebP.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false , caption: "Cars Flanking Boulder Canyon with @emerz.alt on insta" },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/truck3WebP.webp",  alt: "Sailing footage still", ratio: 1.78, placeholder: false, caption: "@emerz.alt on insta Driving Trucks Through Snow" },
-  // CUSTOMIZE: add caption text here, leave undefined to show nothing
-  { src: "/photos/Timeline%201_01_03_07%3B11_WebP.webp", alt: "Sailing footage still", ratio: 1.78, placeholder: false , caption: "Convoy Through Boulder Canyon, with @emerz.alt on insta" },
-];
+  const email = "charlie@charlieramus.com";
+  const mailtoHref = "mailto:charlie@charlieramus.com?subject=I%27d%20Love%20a%20Print!&body=Hi%20Charlie!%0A%0AI%27m%20interested%20in%20ordering%20a%20print.%20Here%20are%20the%20photo%20code(s)%20I%27d%20like%3A%0A%0A(Paste%20the%20code(s)%20here%20%E2%80%94%20click%20a%20photo%20and%20check%20the%20bottom%20right%20corner%20to%20find%20the%20code)"; 
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-60 flex items-center justify-center"
+      style={{ background: "rgba(0,0,0,0.6)" }}
+      onClick={onDismiss}
+    >
+      <div
+        className="relative bg-white rounded-2xl max-w-[380px] w-full mx-4"
+        style={{ padding: "2rem", boxShadow: "0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.10)" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onDismiss}
+          aria-label="Close"
+          className="absolute top-4 right-4 transition-colors duration-150"
+          style={{ color: "#bbb" }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "#555")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "#bbb")}
+        >
+          <X size={17} />
+        </button>
+
+        <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1a1a1a", marginBottom: "0.5rem" }}>
+          Get in Touch
+        </h2>
+        {/* CUSTOMIZE: e.g. "For print inquiries, commissions or licensing." */}
+        <p style={{ fontSize: "13px", color: "#888", marginBottom: "1.5rem" }}>
+          For print inquiries, commissions or licensing.
+        </p>
+
+        <button
+          onClick={() => { window.location.href = mailtoHref; }}
+          style={{
+            display: "block",
+            width: "100%",
+            padding: "0.625rem 1rem",
+            background: "#1a1a1a",
+            color: "#fff",
+            border: "none",
+            borderRadius: "8px",
+            fontSize: "14px",
+            fontWeight: 500,
+            cursor: "pointer",
+            marginBottom: "1.25rem",
+          }}
+        >
+          Open in Mail
+        </button>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.25rem" }}>
+          <div style={{ flex: 1, height: "1px", background: "#e5e5e5" }} />
+          <span style={{ fontSize: "12px", color: "#aaa" }}>or</span>
+          <div style={{ flex: 1, height: "1px", background: "#e5e5e5" }} />
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", marginBottom: "1.25rem" }}>
+          <span style={{ fontFamily: "monospace", fontSize: "13px", color: "#555" }}>
+            {email}
+          </span>
+          <button
+            onClick={handleCopy}
+            aria-label="Copy email"
+            style={{ color: "#bbb", background: "none", border: "none", cursor: "pointer", padding: 0, display: "flex", alignItems: "center" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#555")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#bbb")}
+          >
+            {copied ? <Check size={14} /> : <Copy size={14} />}
+          </button>
+        </div>
+
+        {/* CUSTOMIZE: e.g. "Please include the photo code(s) from the gallery, They are at the bottom left of each photo when clicked on. " */}
+        <p style={{ fontSize: "14px", color: "#888", textAlign: "center" }}>
+          Please include the photo code(s) from the gallery, They are at the bottom left of each photo when clicked on.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 
 export default function PhotographyGallery() {
+  const pathname = usePathname();
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
-  const [captionOpen, setCaptionOpen] = useState(false);
+  const [captionOpen, setCaptionOpen] = useState(true);
   const [showMothersDay, setShowMothersDay] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [showInquire, setShowInquire] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const key = `mothers-day-dismissed-${new Date().getFullYear()}`;
     if (isMothersDayToday() && !sessionStorage.getItem(key)) {
       setShowMothersDay(true);
@@ -211,7 +193,7 @@ export default function PhotographyGallery() {
   };
 
   useEffect(() => {
-    setCaptionOpen(false);
+    setCaptionOpen(true);
   }, [lightboxIdx]);
 
   useEffect(() => {
@@ -226,6 +208,18 @@ export default function PhotographyGallery() {
   return (
     <>
       {showMothersDay && <MothersDayCard onDismiss={dismissMothersDay} />}
+      {showInquire && <InquireModal onDismiss={() => setShowInquire(false)} />}
+
+      {/* Floating Inquire button — fixed bottom-left, only on /photography */}
+      {pathname === "/photography" && (
+        <button
+          onClick={() => setShowInquire(true)}
+          className="fixed bottom-6 left-6 z-40 text-[11px] text-[#FA5B1C] border border-[#FA5B1C] rounded-md px-3 py-1.5 transition-colors duration-200"
+        >
+          Inquire
+        </button>
+      )}
+
       <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-4 max-w-4xl mx-auto">
         {photos.map((photo, idx) => (
           <div key={photo.src || String(idx)} className="break-inside-avoid mb-4">
@@ -288,28 +282,42 @@ export default function PhotographyGallery() {
                 <X size={20} />
               </button>
             </div>
+
+            {/* Bottom row: code (left) + Show description (right) */}
+            {(photos[lightboxIdx].code || photos[lightboxIdx].caption) && (
+              <div className="flex items-center justify-between w-full max-w-[75vw] mt-3">
+                {photos[lightboxIdx].code ? (
+                  <span className="font-mono text-[11px] text-neutral-400 px-2 py-0.5 rounded-sm bg-black/50">
+                    #{photos[lightboxIdx].code}
+                  </span>
+                ) : (
+                  <span />
+                )}
+                {photos[lightboxIdx].caption && (
+                  <button
+                    onClick={() => setCaptionOpen((o) => !o)}
+                    className="text-xs text-neutral-500 hover:text-neutral-300 transition-colors duration-150 focus:outline-none"
+                  >
+                    {captionOpen ? "Hide description" : "Show description"}
+                  </button>
+                )}
+              </div>
+            )}
+
             {photos[lightboxIdx].caption && (
-              <>
-                <button
-                  onClick={() => setCaptionOpen((o) => !o)}
-                  className="mt-3 text-xs text-neutral-500 hover:text-neutral-300 transition-colors duration-150 focus:outline-none"
-                >
-                  {captionOpen ? "Hide description" : "Show description"}
-                </button>
-                <div
-                  style={{
-                    maxHeight: captionOpen ? "200px" : "0",
-                    overflow: "hidden",
-                    transition: "max-height 250ms ease",
-                  }}
-                >
-                  <div className="mt-2 px-4 py-3 rounded-lg max-w-[75vw] bg-black/8 dark:bg-black/40">
-                    <p className="text-sm text-neutral-400 text-center">
-                      {photos[lightboxIdx].caption}
-                    </p>
-                  </div>
+              <div
+                style={{
+                  maxHeight: captionOpen ? "200px" : "0",
+                  overflow: "hidden",
+                  transition: "max-height 250ms ease",
+                }}
+              >
+                <div className="mt-2 px-4 py-3 rounded-lg max-w-[75vw] bg-black/8 dark:bg-black/40">
+                  <p className="text-sm text-neutral-400 text-center">
+                    {photos[lightboxIdx].caption}
+                  </p>
                 </div>
-              </>
+              </div>
             )}
           </div>
         </div>
