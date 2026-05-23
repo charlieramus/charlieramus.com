@@ -22,7 +22,7 @@ const entries = [
     // CUSTOMIZE: date range string
     dates: "2025 — Present",
     // CUSTOMIZE: position name
-    title: "Independant Content Creator & Builder",
+    title: "Independent Content Creator & Builder",
     // CUSTOMIZE: company or org name
     org: "",
     // CUSTOMIZE: org link URL, set "tas" to hide arrow icon
@@ -39,7 +39,7 @@ const entries = [
     // CUSTOMIZE: date range string
     dates: "2021 — Present",
     // CUSTOMIZE: position name
-    title: "Independant Photographer & Videographer",
+    title: "Independent Photographer & Videographer",
     // CUSTOMIZE: company or org name
     org: "",
     // CUSTOMIZE: org link URL, set "" to hide arrow icon
@@ -49,7 +49,7 @@ const entries = [
     // CUSTOMIZE: 2-4 sentence description of what you did and learned
     description: "Independent photographer focused on landscape, outdoor, and documentary photography across the Colorado Front Range & Various traveling experiences. Maintain dedicated photography presence on Instagram showcasing recent work and documentary photography. Photo credit in Boulder Reporting Lab coverage of regional wildfires.",
     // CUSTOMIZE: skill tag strings
-    tags: ["Photograpghy, Videography, Adobe Lightroom, Visual Storytelling"],
+    tags: ["Photography, Videography, Adobe Lightroom, Visual Storytelling"],
   },
 ];
 
@@ -111,17 +111,6 @@ export default function Experience() {
             </div>
           </div>
         ))}
-      </div>
-      <div className="mt-10">
-        {/* CUSTOMIZE: replace href with actual résumé PDF link */}
-        <a
-          href="https://"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[13px] text-fg hover:text-accent transition-colors duration-200"
-        >
-          View Full Résumé →
-        </a>
       </div>
     </section>
   );

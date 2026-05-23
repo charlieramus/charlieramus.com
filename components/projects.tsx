@@ -25,17 +25,6 @@ const projects = [
     // CUSTOMIZE: update tags to reflect your actual tools
     tags: ["Figma", "Brand", "Visual Design"],
   },
-  {
-    // CUSTOMIZE: add a cover image to public/images/projects/web.webp
-    thumbnail: "/images/projects/web.webp",
-    title: "Web Projects",
-    href: "/web-projects",
-    external: false,
-    // CUSTOMIZE: 1-2 sentence description of sites you have designed/built
-    description: "Sites and web experiences designed and built for clients and personal work.",
-    // CUSTOMIZE: update tags as needed
-    tags: ["Web Design", "Development"],
-  },
 ];
 
 export default function Projects() {

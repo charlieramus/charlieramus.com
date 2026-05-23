@@ -11,7 +11,7 @@ const stories = [
   },
   {
     year: "2026",
-    title: "When Bigger Means More Biased: How Scale Transforms LLM's into Confident Amplifiers of Majority Perspectives",
+    title: "When Bigger Means More Biased: How Scale Transforms LLMs into Confident Amplifiers of Majority Perspectives",
     slug: "article-two",
     thumbnail: "/images/Article 2_webp.webp",
   },
