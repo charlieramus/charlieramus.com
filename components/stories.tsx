@@ -4,12 +4,6 @@ import { ArrowUpRight } from "lucide-react";
 
 const stories = [
   {
-    year: "2025",
-    title: "The Architecture of Self-Justification: How Pride Disguises Moral Failure",
-    slug: "article-one",
-    thumbnail: "/images/Article 1_webp.webp",
-  },
-  {
     year: "2026",
     title: "When Bigger Means More Biased: How Scale Transforms LLMs into Confident Amplifiers of Majority Perspectives",
     slug: "article-two",
@@ -20,6 +14,12 @@ const stories = [
     title: "The Third Rotation",
     slug: "article-three",
     thumbnail: "/images/Article 3_webp.webp",
+  },
+  {
+    year: "2025",
+    title: "The Architecture of Self-Justification: How Pride Disguises Moral Failure",
+    slug: "article-one",
+    thumbnail: "/images/Article 1_webp.webp",
   },
 ];
 

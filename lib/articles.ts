@@ -29,6 +29,12 @@ export function getArticleSource(slug: string): string | null {
   return fs.readFileSync(filePath, "utf-8");
 }
 
+function parseArticleDate(str: string): number {
+  const cleaned = str.replace(/(\d+)(st|nd|rd|th)/gi, "$1");
+  const d = new Date(cleaned);
+  return isNaN(d.getTime()) ? 0 : d.getTime();
+}
+
 export function getAllArticles(): ArticleListItem[] {
   return getArticleSlugs()
     .map((slug) => {
@@ -37,5 +43,6 @@ export function getAllArticles(): ArticleListItem[] {
       const { data } = matter(source);
       return { slug, ...(data as ArticleFrontmatter) };
     })
-    .filter(Boolean) as ArticleListItem[];
+    .filter(Boolean)
+    .sort((a, b) => parseArticleDate(b!.date) - parseArticleDate(a!.date)) as ArticleListItem[];
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getArticleSource, getArticleSlugs } from "@/lib/articles";
 import matter from "gray-matter";
@@ -45,12 +44,11 @@ export default async function ArticlePage({
       </div>
 
       {fm.headerImage && (
-        <div className="relative w-full aspect-16/5 mb-6 overflow-hidden rounded-sm">
-          <Image
+        <div className="relative w-full mb-6 overflow-hidden rounded-sm">
+          <img
             src={fm.headerImage}
             alt={fm.title}
-            fill
-            className="object-cover"
+            className="w-full h-auto object-cover max-h-64"
           />
           <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-bg" />
         </div>
