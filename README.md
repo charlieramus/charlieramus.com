@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# charlieramus.com
 
-## Getting Started
+Personal portfolio built from scratch. Features writing, photography, software projects, and design work.
 
-First, run the development server:
+**[charlieramus.com](https://charlieramus.com)**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Dark / light mode** — toggle in the bottom-left of the sidebar (sun/moon icon)
+- **Photography gallery** — full lightbox view; each photo has a unique code shown in the bottom-left corner when opened
+- **Writing** — essays and short fiction rendered from MDX with per-article header images
+- **Design** — carousel walkthroughs of Figma projects
+- **Gear list** — accessible from the bottom of the photography page
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Print inquiries
 
-To learn more about Next.js, take a look at the following resources:
+Interested in a print from the photography gallery?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Open the photo you want in the gallery (click any image)
+2. Note the code shown in the bottom-left corner of the lightbox (e.g. `#CR-042`)
+3. Hit the **Inquire** button in the bottom-left of the page
+4. Include the code(s) in your message — or email directly at **charlie@charlieramus.com**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 16 (App Router) · TypeScript · Tailwind CSS v4
+- MDX for articles · next-themes for dark/light mode
