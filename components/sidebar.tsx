@@ -118,13 +118,8 @@ export default function Sidebar() {
   return (
     <>
       {/* ── Desktop sidebar ── */}
-      <aside className="hidden md:flex fixed left-0 top-0 h-full md:w-[36%] lg:w-[42%] xl:w-[51%] flex-col items-center z-40 px-10 py-14">
+      <aside className="hidden md:flex fixed left-0 top-0 h-full md:w-[24%] lg:w-[30%] xl:w-[39%] flex-col items-center z-40 px-10 pt-22 pb-14">
         <div className="flex flex-col items-start h-full">
-          {/* Theme toggle at very top */}
-          <div className="mb-10">
-            <ThemeToggle />
-          </div>
-
           {/* Name block */}
           <div className="mb-8 text-left">
             {/* CUSTOMIZE: name */}
@@ -176,8 +171,9 @@ export default function Sidebar() {
             </ul>
           </nav>
 
-          {/* Social icons — left aligned near bottom */}
-          <div className="flex justify-start mt-8">
+          {/* Social icons + theme toggle — left aligned near bottom */}
+          <div className="flex items-center justify-start mt-8 gap-5">
+            <ThemeToggle />
             <SocialRow />
           </div>
         </div>
