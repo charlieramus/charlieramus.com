@@ -1,12 +1,12 @@
 # charlieramus.com
 
-Personal portfolio built from scratch. Features writing, photography, software projects, and design work.
+Personal portfolio. Features writing, photography, software projects, and design work.
 
 **[charlieramus.com](https://charlieramus.com)**
 
 ---
 
-## Features
+## Key Features
 
 - **Dark / light mode** — toggle in the bottom-left of the sidebar (sun/moon icon)
 - **Photography gallery** — full lightbox view; each photo has a unique code shown in the bottom-left corner when opened
@@ -21,9 +21,9 @@ Personal portfolio built from scratch. Features writing, photography, software p
 Interested in a print from the photography gallery?
 
 1. Open the photo you want in the gallery (click any image)
-2. Note the code shown in the bottom-left corner of the lightbox (e.g. `#CR-042`)
+2. Note the code shown in the bottom-left corner of the lightbox (e.g. `#0010`)
 3. Hit the **Inquire** button in the bottom-left of the page
-4. Include the code(s) in your message — or email directly at **charlie@charlieramus.com**
+4. Include the code(s) in your message, or email directly at **charlie@charlieramus.com**
 
 ---
 
