@@ -4,19 +4,19 @@ import Link from "next/link";
 const projects = [
   {
     // CUSTOMIZE: add a screenshot of the site to public/images/projects/this-site.webp
-    thumbnail: "/images/projects/this-site.webp",
+    thumbnail: "/images/For Projects Placeholder Cards/Frame 2mp4.webp",
     title: "This Site",
     // CUSTOMIZE: replace with actual GitHub repo URL
     href: "https://github.com/charlieramus/charlieramus.com",
     external: true,
     // CUSTOMIZE: 1-2 sentence description of building this portfolio
-    description: "Personal portfolio designed and built from scratch — featuring photography, writing, and graphic design.",
+    description: "Personal portfolio designed and built from scratch featuring photography, writing, and graphic design.",
     // CUSTOMIZE: update tags to match your actual stack
     tags: ["Next.js", "TypeScript", "Tailwind"],
   },
   {
     // CUSTOMIZE: add a cover image to public/images/projects/design.webp
-    thumbnail: "/images/projects/design.webp",
+    thumbnail: "/images/For Projects Placeholder Cards/Frame 1mp4.webp",
     title: "Graphic Design Portfolio",
     href: "/design",
     external: false,
@@ -34,10 +34,10 @@ export default function Projects() {
         {projects.map((project) => (
           <div
             key={project.title}
-            className="flex gap-5 -mx-3 px-3 py-3 rounded-lg hover:bg-[rgba(0,0,0,0.06)] dark:hover:bg-[rgba(255,255,255,0.04)] transition-colors duration-200"
+            className="flex items-start gap-5 -mx-3 px-3 py-3 rounded-lg hover:bg-[rgba(0,0,0,0.06)] dark:hover:bg-[rgba(255,255,255,0.04)] transition-colors duration-200"
           >
             {/* Thumbnail */}
-            <div className="w-22 h-16.5 shrink-0 rounded-sm overflow-hidden bg-surface">
+            <div className="w-22 h-22 shrink-0 rounded-sm overflow-hidden">
               <img
                 src={project.thumbnail}
                 alt={project.title}

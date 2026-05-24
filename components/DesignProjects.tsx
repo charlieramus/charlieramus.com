@@ -2,13 +2,12 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Each peek zone (and arrow zone) is PEEK % of the carousel width.
-// With PEEK=17, GAP=2, the center slide occupies 62% and each side
-// shows ~24% of the adjacent slide — close to a quarter.
-const PEEK = 17;
+// PEEK=24 means each side shows 24% of the carousel = ~50% of the center slide width.
+// 2×24 + 48 + 2×2 = 100. STEP = 48 + 4 = 52.
+const PEEK = 24;
 const GAP = 2;
-const SLIDE = 100 - PEEK * 2 - GAP * 2; // 62
-const STEP = SLIDE + GAP * 2;            // 66
+const SLIDE = 100 - PEEK * 2 - GAP * 2; // 48
+const STEP = SLIDE + GAP * 2;            // 52
 
 const projects = [
   {
@@ -63,6 +62,30 @@ const projects = [
   },
 ];
 
+function Slide({ src, title, j }: { src: string; title: string; j: number }) {
+  const [tall, setTall] = useState(false);
+  return (
+    <div
+      style={{
+        width: `${SLIDE}%`,
+        flexShrink: 0,
+        marginInline: `${GAP}%`,
+        ...(tall && { height: "clamp(330px, 57vh, 630px)" }),
+      }}
+    >
+      <img
+        src={src}
+        alt={`${title} ${j}`}
+        className={`w-full block rounded-sm${tall ? " h-full object-contain" : " h-auto"}`}
+        onLoad={(e) => {
+          const img = e.currentTarget;
+          if (img.naturalHeight > img.naturalWidth * 1.1) setTall(true);
+        }}
+      />
+    </div>
+  );
+}
+
 function Carousel({ images, title }: { images: string[]; title: string }) {
   const n = images.length;
   // Bookend with clones so the wrap-around peek works seamlessly
@@ -111,7 +134,15 @@ function Carousel({ images, title }: { images: string[]; title: string }) {
   const tx = `${PEEK - pos * STEP}%`;
 
   return (
-    <div className="relative mb-12 select-none">
+    <div
+      className="relative mb-12 select-none"
+      style={{ width: "100vw", marginLeft: "calc(50% - 50vw)" }}
+    >
+      {/* Left ombre — dark background fades into the peeking slide */}
+      <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-[#141414] to-transparent pointer-events-none z-10" />
+      {/* Right ombre */}
+      <div className="absolute inset-y-0 right-0 w-32 bg-linear-to-l from-[#141414] to-transparent pointer-events-none z-10" />
+
       {/* Clipping wrapper — clips the track but not the arrow buttons */}
       <div className="overflow-hidden">
         <div
@@ -123,20 +154,7 @@ function Carousel({ images, title }: { images: string[]; title: string }) {
           onTransitionEnd={onTransitionEnd}
         >
           {extended.map((src, j) => (
-            <div
-              key={j}
-              style={{
-                width: `${SLIDE}%`,
-                flexShrink: 0,
-                marginInline: `${GAP}%`,
-              }}
-            >
-              <img
-                src={src}
-                alt={`${title} ${j}`}
-                className="w-full h-auto block rounded-sm"
-              />
-            </div>
+            <Slide key={j} src={src} title={title} j={j} />
           ))}
         </div>
       </div>
