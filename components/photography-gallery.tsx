@@ -67,7 +67,7 @@ function MothersDayCard({ onDismiss }: { onDismiss: () => void }) {
         {/* CUSTOMIZE: I know I'm not always great at saying it, but I think about how lucky I am to have you as my mom more than you'd guess. You have always been there, and always supported me. */}
         <div style={{ fontFamily: "Georgia, serif", fontSize: "16px", lineHeight: "1.8", color: "#555", marginBottom: "1.5rem" }}>
           <p>
-            I know I'm not always great at saying it, but I think about how lucky I am to have you as my mom more than you'd guess. You have always been there, and always supported me. I hope we have another wonderful year together, and I cant't wait to see what new trips and adventures we get to share. I hope that when we part (college), this site can be used as another form of link between our realities, it features a website I will update frequently with all my photos and hopefully videos eventually.
+            I know I'm not always great at saying it, but I think about how lucky I am to have you as my mom more than you'd guess. You have always been there, and always supported me. I hope we have another wonderful year together, and I can't wait to see what new trips and adventures we get to share. I hope that when we part (college), this site can be used as another form of link between our realities, it features a website I will update frequently with all my photos and hopefully videos eventually.
           </p>
           <p style={{ marginTop: "1rem" }}>
             Love you so much.
