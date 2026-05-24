@@ -118,66 +118,68 @@ export default function Sidebar() {
   return (
     <>
       {/* ── Desktop sidebar ── */}
-      <aside className="hidden md:flex fixed left-0 top-0 h-full w-70 xl:w-[35%] flex-col items-center z-40 px-10 py-14">
-        {/* Theme toggle at very top */}
-        <div className="mb-10">
-          <ThemeToggle />
-        </div>
+      <aside className="hidden md:flex fixed left-0 top-0 h-full md:w-[36%] lg:w-[42%] xl:w-[51%] flex-col items-center z-40 px-10 py-14">
+        <div className="flex flex-col items-start h-full">
+          {/* Theme toggle at very top */}
+          <div className="mb-10">
+            <ThemeToggle />
+          </div>
 
-        {/* Name block */}
-        <div className="mb-8 text-center">
-          {/* CUSTOMIZE: name */}
-          <p className="text-[22px] font-bold text-fg leading-tight tracking-tight">
-            Charlie Ramus
-          </p>
-          {/* CUSTOMIZE: role line — 1 line, medium weight */}
-          <p className="text-[14px] font-medium text-fg mt-1.5">
-            High School Sophomore · Builder
-          </p>
-          {/* CUSTOMIZE: 1-2 sentence description, casual plain language */}
-          <p className="text-[13px] text-muted mt-2 leading-[1.6]">
-            Building with anything I can get my hands on.
-          </p>
-        </div>
+          {/* Name block */}
+          <div className="mb-8 text-left">
+            {/* CUSTOMIZE: name */}
+            <p className="text-[44px] font-bold text-fg leading-tight tracking-tight">
+              Charlie Ramus
+            </p>
+            {/* CUSTOMIZE: role line — 1 line, medium weight */}
+            <p className="text-[14px] font-medium text-fg mt-8">
+              High School Sophomore · Builder
+            </p>
+            {/* CUSTOMIZE: 1-2 sentence description, casual plain language */}
+            <p className="text-[13px] text-muted mt-2 leading-[1.6]">
+              Building with anything I can get my hands on.
+            </p>
+          </div>
 
-        {/* Nav links */}
-        <nav className="flex-1 w-full">
-          <ul className="space-y-5">
-            {NAV_LINKS.map(({ href, label, id }) => {
-              const isActive = activeSection === id;
-              return (
-                <li key={id} className="flex items-center justify-center gap-4">
-                  <span
-                    className={`h-px shrink-0 transition-all duration-200 ${
-                      isActive ? "w-16 bg-fg" : "w-8 bg-muted/30"
-                    }`}
-                  />
-                  <a
-                    href={href}
-                    className={`text-[11px] tracking-[0.12em] uppercase transition-colors duration-200 ${
-                      isActive ? "text-fg" : "text-muted hover:text-fg"
-                    }`}
-                  >
-                    {label}
-                  </a>
-                </li>
-              );
-            })}
-            <li className="flex items-center justify-center gap-4">
-              <span className="h-px w-8 shrink-0 bg-transparent" />
-              <Link
-                href="/photography"
-                className="text-[11px] tracking-[0.12em] uppercase text-muted hover:text-fg transition-colors duration-200"
-              >
-                PHOTOGRAPHY
-              </Link>
-            </li>
-          </ul>
-        </nav>
+          {/* Nav links */}
+          <nav className="flex-1">
+            <ul className="space-y-5">
+              {NAV_LINKS.map(({ href, label, id }) => {
+                const isActive = activeSection === id;
+                return (
+                  <li key={id} className="flex items-center justify-start gap-4">
+                    <span
+                      className={`h-px shrink-0 transition-all duration-200 ${
+                        isActive ? "w-16 bg-fg" : "w-8 bg-muted/30"
+                      }`}
+                    />
+                    <a
+                      href={href}
+                      className={`text-[11px] tracking-[0.12em] uppercase transition-colors duration-200 ${
+                        isActive ? "text-fg" : "text-muted hover:text-fg"
+                      }`}
+                    >
+                      {label}
+                    </a>
+                  </li>
+                );
+              })}
+              <li className="flex items-center justify-start gap-4">
+                <span className="h-px w-8 shrink-0 bg-transparent" />
+                <Link
+                  href="/photography"
+                  className="text-[11px] tracking-[0.12em] uppercase text-muted hover:text-fg transition-colors duration-200"
+                >
+                  PHOTOGRAPHY
+                </Link>
+              </li>
+            </ul>
+          </nav>
 
-        {/* Social icons — centered near bottom */}
-        <div className="flex justify-center mt-8">
-          <SocialRow />
+          {/* Social icons — left aligned near bottom */}
+          <div className="flex justify-start mt-8">
+            <SocialRow />
+          </div>
         </div>
       </aside>
 

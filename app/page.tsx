@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen">
       <Sidebar />
-      <main className="md:ml-70 xl:ml-[35%] pt-14 md:pt-0">
+      <main className="md:ml-[36%] lg:ml-[42%] xl:ml-[51%] pt-14 md:pt-0">
         <About />
         <div className="h-px bg-rule mx-10 md:mx-16" />
         <Experience />
