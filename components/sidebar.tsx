@@ -1,8 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useTheme } from "next-themes";
-import { Sun, Moon } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 
 const NAV_LINKS = [
   { href: "#about", label: "ABOUT", id: "about" },
@@ -37,7 +35,17 @@ function useActiveSection() {
   return active;
 }
 
-const socialLinks = [
+type SocialLink = { href: string; label: string; icon: ReactNode; topLabel?: string; bottomLabel?: string };
+
+const instagramIcon = (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+  </svg>
+);
+
+const socialLinks: SocialLink[] = [
   {
     href: "https://www.linkedin.com/in/charlie-ramus-776366398/",
     label: "LinkedIn",
@@ -61,20 +69,52 @@ const socialLinks = [
   },
   {
     href: "https://www.instagram.com/chahramii/",
-    label: "Instagram",
+    label: "Instagram Photography",
+    bottomLabel: "photography insta",
+    icon: instagramIcon,
+  },
+  {
+    href: "https://www.instagram.com/charlieramus_/",
+    label: "Instagram Personal",
+    topLabel: "personal insta",
+    icon: instagramIcon,
+  },
+  {
+    href: "https://letterboxd.com/cwramus/",
+    label: "Letterboxd",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+        <circle cx="5.3" cy="12" r="4"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="18.7" cy="12" r="4"/>
       </svg>
     ),
   },
-] as const;
+];
 
 function SocialRow() {
+  const n = socialLinks.length;
   return (
-    <div className="flex items-center gap-5">
+    <div
+      className="grid gap-x-5 gap-y-1"
+      style={{ gridTemplateColumns: `repeat(${n}, 24px)` }}
+    >
+      {/* Row 1 — top labels (↓ arrow points at icon below) */}
+      {socialLinks.map(({ label, topLabel }) => (
+        <div key={`top-${label}`} className="flex flex-col items-center justify-end">
+          {topLabel && (
+            <>
+              <span className="text-[9px] font-bold text-muted text-center whitespace-nowrap leading-none">{topLabel}</span>
+              <svg width="10" height="28" viewBox="0 0 10 28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-muted mt-0.5">
+                <line x1="5" y1="1" x2="5" y2="20"/>
+                <polyline points="1,20 5,26 9,20"/>
+              </svg>
+            </>
+          )}
+        </div>
+      ))}
+
+      {/* Row 2 — icons */}
       {socialLinks.map(({ href, label, icon }) => (
         <a
           key={label}
@@ -82,38 +122,32 @@ function SocialRow() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
-          className="text-muted hover:text-accent transition-colors duration-200"
+          className="flex items-center justify-center text-muted hover:text-accent transition-colors duration-200"
         >
           {icon}
         </a>
+      ))}
+
+      {/* Row 3 — bottom labels (↑ arrow points at icon above) */}
+      {socialLinks.map(({ label, bottomLabel }) => (
+        <div key={`bottom-${label}`} className="flex flex-col items-center justify-start">
+          {bottomLabel && (
+            <>
+              <svg width="10" height="28" viewBox="0 0 10 28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-muted mb-0.5">
+                <polyline points="1,8 5,2 9,8"/>
+                <line x1="5" y1="8" x2="5" y2="27"/>
+              </svg>
+              <span className="text-[9px] font-bold text-muted text-center whitespace-nowrap leading-none">{bottomLabel}</span>
+            </>
+          )}
+        </div>
       ))}
     </div>
   );
 }
 
 export default function Sidebar() {
-  const { resolvedTheme, setTheme } = useTheme();
   const activeSection = useActiveSection();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-
-  function ThemeToggle({ className }: { className?: string }) {
-    return (
-      <button
-        onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-        aria-label="Toggle color theme"
-        className={`text-muted hover:text-fg transition-colors duration-200 ${className ?? ""}`}
-      >
-        {mounted ? (
-          resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />
-        ) : (
-          <span className="inline-block w-4 h-4" />
-        )}
-      </button>
-    );
-  }
 
   return (
     <>
@@ -171,75 +205,36 @@ export default function Sidebar() {
             </ul>
           </nav>
 
-          {/* Social icons + theme toggle — left aligned near bottom */}
-          <div className="flex items-center justify-start mt-8 gap-5">
-            <ThemeToggle />
+          {/* Social icons — left aligned near bottom */}
+          <div className="mt-8">
             <SocialRow />
           </div>
         </div>
       </aside>
 
-      {/* ── Mobile header ── */}
-      <header className="md:hidden fixed top-0 left-0 right-0 z-50 bg-bg border-b border-rule h-14 flex items-center justify-between px-6">
-        {/* CUSTOMIZE: name shown in mobile header */}
-        <span className="text-[15px] font-bold text-fg select-none">Charlie Ramus</span>
-        <button
-          onClick={() => setMenuOpen((o) => !o)}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          className="text-muted hover:text-fg transition-colors duration-200"
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            aria-hidden="true"
-          >
-            {menuOpen ? (
-              <>
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </>
-            ) : (
-              <>
-                <line x1="3" y1="7" x2="21" y2="7" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="17" x2="21" y2="17" />
-              </>
-            )}
-          </svg>
-        </button>
-      </header>
-
-      {/* ── Mobile dropdown ── */}
-      {menuOpen && (
-        <div className="md:hidden fixed top-14 left-0 right-0 z-40 bg-bg border-b border-rule px-6 py-5 flex flex-col gap-5">
-          {NAV_LINKS.map(({ href, label }) => (
-            <a
-              key={label}
-              href={href}
-              className="text-[11px] tracking-[0.12em] uppercase text-muted hover:text-fg transition-colors duration-200"
-              onClick={() => setMenuOpen(false)}
-            >
-              {label}
-            </a>
-          ))}
+      {/* ── Mobile hero (no fixed header bar) ── */}
+      <div className="md:hidden px-10 pt-8 pb-4">
+        <p className="text-[32px] font-bold text-fg leading-tight tracking-tight">
+          Charlie Ramus
+        </p>
+        <p className="text-[13px] font-medium text-fg mt-5">
+          High School Sophomore · Builder
+        </p>
+        <div className="mt-4">
+          <SocialRow />
+        </div>
+        <div className="mt-3">
           <Link
             href="/photography"
             className="text-[11px] tracking-[0.12em] uppercase text-muted hover:text-fg transition-colors duration-200"
-            onClick={() => setMenuOpen(false)}
           >
             PHOTOGRAPHY
           </Link>
-          <div className="pt-2 flex items-center justify-between border-t border-rule">
-            <SocialRow />
-            <ThemeToggle />
-          </div>
         </div>
-      )}
+        <p className="text-[13px] text-muted mt-3 leading-[1.6]">
+          Building with anything I can get my hands on.
+        </p>
+      </div>
     </>
   );
 }

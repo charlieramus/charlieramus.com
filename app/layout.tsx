@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/providers";
 import CursorGlow from "@/components/cursor-glow";
+import ThemeToggle from "@/components/theme-toggle";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({
       <body className="bg-bg text-fg antialiased font-sans">
         <Providers>
           <CursorGlow />
+          <ThemeToggle />
           {children}
         </Providers>
       </body>
