@@ -23,7 +23,7 @@ const projects = [
       "/images/Notion/06 – New Positioningmp4.webp",
       "/images/Notion/07 – New Identitymp4.webp",
       "/images/Notion/08 – Feature_ AI Agentsmp4.webp",
-      "/images/Notion/09 – Feature_ Mail + Calendarmp4.webp",
+      "/images/Notion/09 – Feature_ Mail and Calendarmp4.webp",
       "/images/Notion/10 – Financialsmp4.webp",
     ],
   },
