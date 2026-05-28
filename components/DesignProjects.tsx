@@ -52,14 +52,6 @@ const projects = [
       "/images/Photography Presentation UI/The British Virgin Islands Pt 2mp4.webp",
     ],
   },
-  {
-    title: "Leukemia Science Project",
-    date: "2023",
-    description: "A science presentation on leukemia designed to communicate research findings clearly. Made for a high school biology class, focused on visual hierarchy, clean layout, and making dense medical content approachable.",
-    images: [
-      "/images/Lukemia Science Project/LEUKEMIA Science Projectmp4.webp",
-    ],
-  },
 ];
 
 function Slide({ src, title, j }: { src: string; title: string; j: number }) {
