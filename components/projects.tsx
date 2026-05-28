@@ -1,33 +1,37 @@
+"use client";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const projects = [
   {
-    // CUSTOMIZE: add a screenshot of the site to public/images/projects/this-site.webp
-    thumbnail: "/images/For Projects Placeholder Cards/Frame 2mp4.webp",
+    thumbnailDark: "/images/For Projects Placeholder Cards/Frame 2mp4.webp",
+    thumbnailLight: "/images/For Projects Placeholder Cards/Frame 5_webp.webp",
     title: "This Site",
-    // CUSTOMIZE: replace with actual GitHub repo URL
     href: "https://github.com/charlieramus/charlieramus.com",
     external: true,
-    // CUSTOMIZE: 1-2 sentence description of building this portfolio
     description: "Personal portfolio designed and built from scratch featuring photography, writing, and graphic design.",
-    // CUSTOMIZE: update tags to match your actual stack
     tags: ["Next.js", "TypeScript", "Tailwind"],
   },
   {
-    // CUSTOMIZE: add a cover image to public/images/projects/design.webp
-    thumbnail: "/images/For Projects Placeholder Cards/Frame 1mp4.webp",
+    thumbnailDark: "/images/For Projects Placeholder Cards/Frame 1mp4.webp",
+    thumbnailLight: "/images/For Projects Placeholder Cards/Frame 4_webp.webp",
     title: "Graphic Design Portfolio",
     href: "/design",
     external: false,
-    // CUSTOMIZE: 1-2 sentence description of your design work
     description: "A collection of brand, print, and visual design projects.",
-    // CUSTOMIZE: update tags to reflect your actual tools
     tags: ["Figma", "Brand", "Visual Design"],
   },
 ];
 
 export default function Projects() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const isDark = !mounted || resolvedTheme === "dark";
+
   return (
     <section id="projects" className="py-20 px-10 md:px-16">
       <div className="flex flex-col gap-10 max-w-165">
@@ -39,7 +43,7 @@ export default function Projects() {
             {/* Thumbnail */}
             <div className="w-22 h-22 shrink-0 rounded-sm overflow-hidden">
               <img
-                src={project.thumbnail}
+                src={isDark ? project.thumbnailDark : project.thumbnailLight}
                 alt={project.title}
                 className="w-full h-full object-cover"
               />
