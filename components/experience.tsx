@@ -7,7 +7,7 @@ const entries = [
     // CUSTOMIZE: position name
     title: "Developer",
     // CUSTOMIZE: company or org name
-    org: "Querryn",
+    org: "Querryn (Early Development)",
     // CUSTOMIZE: org link URL, set "" to hide arrow icon
     href: "https://github.com/charlieramus/Querryn",
     // CUSTOMIZE: reference links, or set to []
@@ -22,7 +22,7 @@ const entries = [
     // CUSTOMIZE: date range string
     dates: "2025 — Present",
     // CUSTOMIZE: position name
-    title: "Independent Content Creator & Builder",
+    title: "Content Creator & Builder",
     // CUSTOMIZE: company or org name
     org: "",
     // CUSTOMIZE: org link URL, set "tas" to hide arrow icon
